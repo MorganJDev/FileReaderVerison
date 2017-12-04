@@ -20,6 +20,9 @@ public class MainMenuController
         window.show();
 
         Main.window.close();
+        Main.window = window;
+
+        window.show();
     }
 
     @FXML
@@ -47,7 +50,7 @@ public class MainMenuController
         window.initModality(Modality.APPLICATION_MODAL);
         window.show();
 
-        Main.window = window;
+        Main.popup = window;
     }
 
     @FXML
@@ -61,7 +64,7 @@ public class MainMenuController
         window.initModality(Modality.APPLICATION_MODAL);
         window.show();
 
-        Main.window = window;
+        Main.popup = window;
     }
 
     @FXML
@@ -75,7 +78,7 @@ public class MainMenuController
         window.initModality(Modality.APPLICATION_MODAL);
         window.show();
 
-        Main.window = window;
+        Main.popup = window;
     }
 
     @FXML
@@ -89,6 +92,6 @@ public class MainMenuController
         window.initModality(Modality.APPLICATION_MODAL);
         window.show();
 
-        Main.window = window;
+        Main.popup = window;
     }
 }
