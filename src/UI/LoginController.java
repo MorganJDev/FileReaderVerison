@@ -1,6 +1,7 @@
 package UI;
 import Classes.*;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,23 +16,53 @@ import java.awt.event.ActionEvent;
 
 public class LoginController
 {
-    public void handleRegister()
-    {
+    public javafx.scene.control.TextField usernameBox;
 
-    }
-
-    @FXML
-    public void handleLogin() throws Exception
+    public void handleRegister() throws Exception
     {
-        //Stage window = (Stage) ((Node)e.getSource()).getScene().getWindow();
         Stage window = new Stage();
 
-        Parent current = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        Parent current = FXMLLoader.load(getClass().getResource("RegisterUser.fxml"));
 
         window.setScene(new Scene(current));
         window.show();
 
         Main.window.close();
         Main.window = window;
+    }
+
+    @FXML
+    public void handleLogin() throws Exception
+    {
+        if(foundUser())
+        {
+            //Stage window = (Stage) ((Node)e.getSource()).getScene().getWindow();
+            Stage window = new Stage();
+
+            Parent current = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+
+            window.setScene(new Scene(current));
+            window.show();
+
+            Main.window.close();
+            Main.window = window;
+        }
+    }
+
+    public Boolean foundUser()
+    {
+        Boolean found = false;
+        String input = usernameBox.getText();
+
+        for(int i = 0; i < (Main.admin.getAllUsers().size() - 1); i++)
+        {
+            if (Main.admin.getAllUsers().get(i).getUsername().equals(input))
+            {
+                Main.admin.currentUser = Main.admin.getAllUsers().get(i);
+                found = true;
+            }
+        }
+
+        return found;
     }
 }

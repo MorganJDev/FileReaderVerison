@@ -1,6 +1,10 @@
 package Classes;
 
-import java.util.ArrayList;
+import javafx.beans.InvalidationListener;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
+
+import java.util.*;
 
 /**
  * This class manages methods to manage login and register.
@@ -11,8 +15,8 @@ import java.util.ArrayList;
  */
 public class UserManager
 {
-    private User currentUser;
-    private ArrayList<User> allUsers = new ArrayList<>();
+    public User currentUser;
+    public ArrayList<User> allUsers;
 
     /**
      * This creates a new instance of user manager
@@ -20,6 +24,7 @@ public class UserManager
     public UserManager()
     {
         currentUser = null;
+        allUsers = new ArrayList<>();
     }
 
     // Current user Set/Get

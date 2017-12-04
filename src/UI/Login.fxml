@@ -19,7 +19,7 @@
                <GridPane.margin>
                   <Insets left="24.0" />
                </GridPane.margin></Label>
-            <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="201.0" promptText="Username..." GridPane.columnIndex="1" />
+            <TextField fx:id="usernameBox" prefHeight="25.0" prefWidth="201.0" promptText="Username..." GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <Button fx:id="loginButton" layoutX="255.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />

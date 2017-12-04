@@ -35,7 +35,7 @@ public class User
      * @param username The username
      */
     public User (String forename, String surname, String phone, String add1, String add2,
-                 String city, String county, String post, String username, LocalDateTime lastlogin)
+                 String city, String county, String post, String username)
     {
         this.forename = forename;
         this.surname = surname;
@@ -45,11 +45,7 @@ public class User
         this.city = city;
         this.county = county;
         postcode = post;
-        if (lastlogin == null) {
-        	lastlogin = LocalDateTime.now();
-        } else {
-        	this.lastLogin = lastlogin;
-        }
+        this.lastLogin = LocalDateTime.now();
         favouriteUsers = new ArrayList<>();
         this.username = username;
     }

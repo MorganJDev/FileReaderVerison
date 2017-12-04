@@ -1,5 +1,7 @@
 package UI;
 	
+import Classes.User;
+import Classes.UserManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,10 +15,13 @@ public class Main extends Application
 {
     public static Stage window;
     public static Stage popup;
+    public static UserManager admin;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception
     {
+        SetupApplication();
+
         Stage newWindow = primaryStage;
 
         Parent current = FXMLLoader.load(getClass().getResource("Login.fxml"));
@@ -31,4 +36,15 @@ public class Main extends Application
     {
 		launch(args);
 	}
+
+	public void SetupApplication()
+    {
+        admin = new UserManager();
+        User newUser = new User("Dan", "Taylor","03748563859","03 Bryn Road","Brynmill",
+                "Swansea", "Swansea", "SA2 0BT", "Dan98");
+        User newUser2 = new User("Morgan", "Jones","03748563859","03 Bryn Road","Brynmill",
+                "Swansea", "Swansea", "SA2 0BT", "Morg98");
+        admin.registerUser(newUser);
+        admin.registerUser(newUser2);
+    }
 }
