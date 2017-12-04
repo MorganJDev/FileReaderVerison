@@ -15,9 +15,10 @@
 
 <AnchorPane prefHeight="480.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.PhotosDialogueController">
    <children>
-      <Button fx:id="previousButton" layoutX="213.0" layoutY="440.0" mnemonicParsing="false" onAction="#handlePrevious" text="&lt; Previous" />
-      <Button fx:id="nextButton" layoutX="321.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleNext" text="Next &gt;" />
+      <Button fx:id="previousButton" layoutX="192.0" layoutY="440.0" mnemonicParsing="false"  text="&lt; Previous" />
+      <Button fx:id="nextButton" layoutX="330.0" layoutY="440.0" mnemonicParsing="false"  text="Next &gt;" />
       <ImageView fx:id="artPhoto" fitHeight="396.0" fitWidth="545.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="closeButton" layoutX="274.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleCancel" text="Close" />
    </children>
    <opaqueInsets>
       <Insets />

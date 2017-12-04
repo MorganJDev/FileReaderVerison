@@ -15,7 +15,7 @@
 
 <AnchorPane prefHeight="457.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AvatarDialogueController">
    <children>
-      <Button fx:id="cnacelButton" layoutX="563.0" layoutY="417.0" mnemonicParsing="false"  text="Cancel" />
+      <Button fx:id="cnacelButton" layoutX="563.0" layoutY="417.0" mnemonicParsing="false"  text="Cancel" onAction="#handleCancel" />
       <Button fx:id="confirmButton" layoutX="627.0" layoutY="417.0" mnemonicParsing="false"  text="Confirm" />
       <ImageView fx:id="artPhoto" fitHeight="166.0" fitWidth="195.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="artPhoto1" fitHeight="166.0" fitWidth="195.0" layoutX="253.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />

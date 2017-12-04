@@ -15,7 +15,7 @@
       <ButtonBar layoutX="189.0" layoutY="104.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button mnemonicParsing="false"  text="Place Bid" />
-            <Button mnemonicParsing="false" text="Cancel" />
+            <Button mnemonicParsing="false" text="Cancel" onAction="#handleCancel"/>
         </buttons>
       </ButtonBar>
       <GridPane layoutX="14.0" layoutY="13.0" prefHeight="91.0" prefWidth="375.0">

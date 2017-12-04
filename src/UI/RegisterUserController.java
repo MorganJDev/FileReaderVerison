@@ -1,5 +1,7 @@
 package UI;
 
+import javafx.fxml.FXML;
+
 public class RegisterUserController
 {
     public void handleOk()
@@ -7,8 +9,9 @@ public class RegisterUserController
 
     }
 
-    public void handleCancel()
+    @FXML
+    private void handleCancel()
     {
-
+        Main.window.close();
     }
 }
