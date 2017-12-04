@@ -12,6 +12,6 @@ public class RegisterUserController
     @FXML
     private void handleCancel()
     {
-        Main.window.close();
+        Main.popup.close();
     }
 }

@@ -7,6 +7,6 @@ public class BidDialogController
     @FXML
     private void handleCancel()
     {
-        Main.window.close();
+        Main.popup.close();
     }
 }

@@ -12,17 +12,19 @@ import UI.*;
 public class Main extends Application
 {
     public static Stage window;
+    public static Stage popup;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception
     {
-        window = primaryStage;
+        Stage newWindow = primaryStage;
 
         Parent current = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        window.setTitle("Artatawe");
+        newWindow.setTitle("Artatawe");
 
-        window.setScene(new Scene(current));
-        window.show();
+        newWindow.setScene(new Scene(current));
+        Main.window = newWindow;
+        newWindow.show();
 	}
 	
 	public static void main(String[] args)

@@ -13,7 +13,6 @@ public class MainMenuController
     private void handleLogout() throws Exception
     {
         Stage window = new Stage();
-
         Parent current = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
         window.setScene(new Scene(current));
