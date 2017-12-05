@@ -89,13 +89,13 @@
 										<Label fx:id="myArtDescLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="31.0" prefHeight="190.0" prefWidth="403.0" style="-fx-background-color: DAE6F3;" text="Label" wrapText="true" />
 										<ButtonBar layoutX="175.0" layoutY="379.0" prefHeight="40.0" prefWidth="241.0">
 											<buttons>
-												<Button mnemonicParsing="false" text="Add Photos" fx:id="addPhotosButton" onAction="#handleAddPhotos"/>
+												<Button fx:id="addPhotosButton" mnemonicParsing="false" onAction="#handleAddPhotos" text="Add Photos" />
 											</buttons>
 										</ButtonBar>
                               <ButtonBar layoutX="14.0" layoutY="379.0" prefHeight="40.0" prefWidth="225.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0">
                                 <buttons>
-                                  <Button mnemonicParsing="false"  text="New Sculpture" ButtonBar.buttonData="LEFT" fx:id="newSculptureButton" />
-                        		  <Button mnemonicParsing="false"  text="New Painting" ButtonBar.buttonData="LEFT" fx:id="newPaintingButton" onAction="#handleNewPainting"/>
+                                  <Button fx:id="newSculptureButton" mnemonicParsing="false" text="New Sculpture" ButtonBar.buttonData="LEFT" />
+                        		  <Button fx:id="newPaintingButton" mnemonicParsing="false" onAction="#handleNewPainting" text="New Painting" ButtonBar.buttonData="LEFT" />
                                 </buttons>
                               </ButtonBar>
 									</children>
@@ -172,11 +172,12 @@
 										<Label fx:id="browseArtDescLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="31.0" prefHeight="190.0" prefWidth="403.0" style="-fx-background-color: DAE6F3;" text="Label" wrapText="true" />
 										<ButtonBar layoutX="14.0" layoutY="379.0" prefHeight="40.0" prefWidth="409.0">
 											<buttons>
-												<Button mnemonicParsing="false"  text="Bid..." fx:id="bidButton" onAction="#handleBid"/>
-												<Button mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Photos" fx:id="viewPhotosButotn" onAction="#handleViewPhotos"/>
-												<Button mnemonicParsing="false" text="Filter..." fx:id="filterButton"/>
+												<Button fx:id="bidButton" mnemonicParsing="false" onAction="#handleBid" text="Bid..." />
+												<Button fx:id="viewPhotosButotn" mnemonicParsing="false" onAction="#handleViewPhotos" prefHeight="25.0" prefWidth="142.0" text="Photos" />
+												<Button fx:id="filterButton" mnemonicParsing="false" text="Filter..." />
 											</buttons>
 										</ButtonBar>
+                              <Button layoutX="300.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" text="Favourite this seller" />
 									</children>
 								</AnchorPane>
 							</items>
@@ -213,22 +214,22 @@
                               <Label text="City:" GridPane.rowIndex="6" />
                               <Label text="County:" GridPane.rowIndex="7" />
                               <Label text="Postcode:" GridPane.rowIndex="8" />
-                              <Label text="Label" GridPane.columnIndex="1" fx:id="usernameLabel"/>
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="firstNameLabel"/>
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="lastNameLabel"/>
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="telNoLabel"/>
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="addOneLabel"/>
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" fx:id="addTwoLabel"/>
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="cityLabel"/>
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="countyLabel"/>
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" fx:id="postCodeLabel"/>
+                              <Label fx:id="usernameLabel" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="firstNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lastNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="telNoLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="addOneLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="addTwoLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label fx:id="cityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label fx:id="countyLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <Label fx:id="postCodeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                            </children>
                         </GridPane>
                         <Label layoutX="135.0" layoutY="23.0" text="Your profile:" />
                         <ImageView fitHeight="221.0" fitWidth="283.0" layoutX="431.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button layoutX="135.0" layoutY="357.0" mnemonicParsing="false" text="Edit details" fx:id="editDetailsButton"/>
-                        <Button layoutX="441.0" layoutY="259.0" mnemonicParsing="false" text="Select new avatar" fx:id="newAvatarButton" onAction="#handleNewAvatar"/>
-                        <Button layoutX="560.0" layoutY="259.0" mnemonicParsing="false" text="Create new custom image" fx:id="customImageButton"/>
+                        <Button fx:id="editDetailsButton" layoutX="135.0" layoutY="357.0" mnemonicParsing="false" text="Edit details" />
+                        <Button fx:id="newAvatarButton" layoutX="441.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleNewAvatar" text="Select new avatar" />
+                        <Button fx:id="customImageButton" layoutX="560.0" layoutY="259.0" mnemonicParsing="false" text="Create new custom image" />
                      </children>
 								</AnchorPane>
 
@@ -282,6 +283,6 @@
 				</Tab>
 			</tabs>
 		</TabPane>
-		<Button layoutX="807.0" layoutY="481.0" mnemonicParsing="false"  text="Logout" fx:id="logoutButton" onAction="#handleLogout"/>
+		<Button fx:id="logoutButton" layoutX="807.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
 	</children>
 </AnchorPane>
