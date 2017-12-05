@@ -81,6 +81,7 @@ public class FileWriter {
 							b.getStatus() + ";" + b.getBidPlaced());
 				}
 			}
+			out.println("");
 
 		}
 	}
