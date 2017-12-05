@@ -130,7 +130,7 @@ public class FileReader {
     	}
     }
     
-    private static void setFavouriteUsers(String filename, UserManager um) {
+    public static void setFavouriteUsers(String filename, UserManager um) {
     	File inputFile = new File (filename);
     	Scanner in = null;
     	try {

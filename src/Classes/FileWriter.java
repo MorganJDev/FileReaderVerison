@@ -56,33 +56,33 @@ public class FileWriter {
 		for (AuctionListing al : a.getAuctionListings()) {
 			Artwork art = al.getArtwork();
 			if (art instanceof Painting) {
-				out.print("painting ");
+				out.print("painting%");
 				Painting paint = (Painting) art;
-				out.print(paint.getTitle() + " " + paint.getDescription() + " " +
-						paint.getCreatorName() + " " + paint.getCreationYear() + " " +
-						paint.getPhotos().get(0) + " " + paint.getWidth() + " " + paint.getHeight());
+				out.print(paint.getTitle() + "%" + paint.getDescription() + "%" +
+						paint.getCreatorName() + "%" + paint.getCreationYear() + "%" +
+						paint.getPhotos().get(0) + "%" + paint.getWidth() + "%" + paint.getHeight() + "%");
 			} else if (al.getArtwork() instanceof Sculpture) {
-				out.print("sculpture ");
+				out.print("sculpture%");
 				Sculpture sculpt = (Sculpture) art;
-				out.print(sculpt.getTitle() + " " + sculpt.getDescription() + " " +
-						sculpt.getCreatorName() + " " + sculpt.getCreationYear() + " ");
+				out.print(sculpt.getTitle() + "%" + sculpt.getDescription() + "%" +
+						sculpt.getCreatorName() + "%" + sculpt.getCreationYear() + "%");
 				for(String s : sculpt.getPhotos()) {
-					out.print(s + " ");
+					out.print(s + "%");
 				}
-				out.print(sculpt.getWidth() + " " + sculpt.getHeight() + " " + 
-						sculpt.getDepth() + " " + sculpt.getMaterial() + " ");
+				out.print(sculpt.getWidth() + "%" + sculpt.getHeight() + "%" +
+						sculpt.getDepth() + "%" + sculpt.getMaterial() + "%");
 			}
-			out.print(al.getSellerUsername() + " " + al.getMaxBids() + " " + al.getReservePrice() + " ");
-			if (al.getBids() != null) {
-				out.print(al.getWinningBidder().getUsername() + " " + al.getStatus() + " " + 
-						al.getWinningPrice() + " ");
+			out.print(al.getSellerUsername() + "%" + al.getMaxBids() + "%" + al.getReservePrice() + "%");
+			if (al.getBids().size() != 0) {
+				out.print(al.getWinningBidder().getUsername() + "%" + al.getStatus() + "%" +
+						al.getWinningPrice() + "%");
 				for (Bid b : al.getBids()) {
 					out.print(b.getBidder().getUsername() + ";" + b.getAmount() + ";" +
 							b.getStatus() + ";" + b.getBidPlaced());
 				}
 			}
 			out.println("");
-
+			out.close();
 		}
 	}
 

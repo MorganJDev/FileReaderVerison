@@ -99,10 +99,12 @@ public class UserManager
     public void populateArray()
     {
         this.allUsers = (FileReader.readUsers("users.txt"));
+        FileReader.setFavouriteUsers("favouriteUsers.txt",this);
     }
 
     public void writeFiles()
     {
         FileWriter.writeUsers("users.txt",this);
+        FileWriter.writeFavouriteUsers("favouriteUsers.txt",this);
     }
 }
