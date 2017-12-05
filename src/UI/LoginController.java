@@ -41,11 +41,11 @@ public class LoginController
 
             Parent current = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
 
-            window.setScene(new Scene(current));
-            window.show();
-
             Main.window.close();
-            Main.window = window;
+            Main.window.setScene(new Scene(current));
+            Main.window.show();
+
+            Main.window.setOnCloseRequest(e -> Main.closeApplication());
         }
     }
 
@@ -54,11 +54,11 @@ public class LoginController
         Boolean found = false;
         String input = usernameBox.getText();
 
-        for(int i = 0; i < (Main.admin.getAllUsers().size() - 1); i++)
+        for(int i = 0; i <= (Main.admin.getAllUsers().size() - 1); i++)
         {
             if (Main.admin.getAllUsers().get(i).getUsername().equals(input))
             {
-                Main.admin.currentUser = Main.admin.getAllUsers().get(i);
+                Main.admin.setCurrentUser(Main.admin.getAllUsers().get(i));
                 found = true;
             }
         }

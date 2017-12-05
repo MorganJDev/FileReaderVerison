@@ -1,9 +1,11 @@
 package Classes;
 
+import UI.Main;
 import javafx.beans.InvalidationListener;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
+import java.io.File;
 import java.util.*;
 
 /**
@@ -15,8 +17,9 @@ import java.util.*;
  */
 public class UserManager
 {
-    public User currentUser;
-    public ArrayList<User> allUsers;
+    private User currentUser = null;
+    private ArrayList<User> allUsers;
+    private ArrayList<Artwork> artworks;
 
     /**
      * This creates a new instance of user manager
@@ -25,6 +28,22 @@ public class UserManager
     {
         currentUser = null;
         allUsers = new ArrayList<>();
+        artworks = new ArrayList<>();
+    }
+
+    public void addArtworks(Artwork artwork)
+    {
+        artworks.add(artwork);
+    }
+
+    public ArrayList<Artwork> getArtworks()
+    {
+        return artworks;
+    }
+
+    public void setCurrentUser(User user)
+    {
+        currentUser = user;
     }
 
     // Current user Set/Get
@@ -75,10 +94,15 @@ public class UserManager
 
     /**
      * Method to populate array with all users in file
-     * @param filename The file of users
+     *
      */
-    public void populateArray(String filename)
+    public void populateArray()
     {
-        //readFile(filename);
+        this.allUsers = (FileReader.readUsers("users.txt"));
+    }
+
+    public void writeFiles()
+    {
+        FileWriter.writeUsers("users.txt",this);
     }
 }

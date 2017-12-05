@@ -1,11 +1,18 @@
 package UI;
 
+import Classes.Artwork;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+
+import static UI.Main.closeApplication;
 
 public class MainMenuController
 {
@@ -15,13 +22,10 @@ public class MainMenuController
         Stage window = new Stage();
         Parent current = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
-        window.setScene(new Scene(current));
-        window.show();
-
         Main.window.close();
-        Main.window = window;
-
-        window.show();
+        Main.window.setScene(new Scene(current));
+        Main.window.show();
+        Main.window.setOnCloseRequest(e -> closeApplication());
     }
 
     @FXML
@@ -35,7 +39,7 @@ public class MainMenuController
         window.initModality(Modality.APPLICATION_MODAL);
         window.show();
 
-        Main.window = window;
+        Main.popup = window;
     }
 
     @FXML

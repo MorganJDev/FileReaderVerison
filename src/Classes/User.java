@@ -34,8 +34,8 @@ public class User
      * @param post Classes.User postcode
      * @param username The username
      */
-    public User (String forename, String surname, String phone, String add1, String add2,
-                 String city, String county, String post, String username)
+    public User (String forename, String surname, String username, String phone, String add1, String add2,
+                 String city, String county, String post,LocalDateTime time)
     {
         this.forename = forename;
         this.surname = surname;
@@ -45,7 +45,7 @@ public class User
         this.city = city;
         this.county = county;
         postcode = post;
-        this.lastLogin = LocalDateTime.now();
+        this.lastLogin = time;
         favouriteUsers = new ArrayList<>();
         this.username = username;
     }
