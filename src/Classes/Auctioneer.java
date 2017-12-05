@@ -73,4 +73,9 @@ public class Auctioneer {
     {
         this.auctionListings = (FileReader.readAuctions("auctions.txt", Main.admin));
     }
+
+    public void writeFiles()
+    {
+        FileWriter.writeAuctions("auctions.txt",Main.auctioneer);
+    }
 }
