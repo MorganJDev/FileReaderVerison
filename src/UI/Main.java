@@ -47,7 +47,7 @@ public class Main extends Application
 	public void SetupApplication()
     {
         admin = new UserManager();
-	auctioneer = new Auctioneer();
+	    auctioneer = new Auctioneer();
 
         /*
         User newUser = new User("Dan", "Taylor","03748563859","03 Bryn Road","Brynmill",
@@ -63,6 +63,7 @@ public class Main extends Application
         */
 
         admin.populateArray();
+        auctioneer.populateArray();
         //System.out.println(admin.getAllUsers().get(0).getUsername());
     }
 

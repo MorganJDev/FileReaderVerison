@@ -93,7 +93,7 @@ public class AdminMenuController {
 		User user = Main.admin.getCurrentUser();
 		if (user != null) {
 			browseUserTable.setItems((ObservableList<Classes.User>) Main.admin.getAllUsers());
-			browseArtworkTable.setItems((ObservableList<AuctionListing>) Main.auctions.getAuctionListings());
+			browseArtworkTable.setItems((ObservableList<AuctionListing>) Main.auctioneer.getAuctionListings());
 	      }
 	}
 	
@@ -198,12 +198,12 @@ public class AdminMenuController {
     @FXML
     private void handleDeleteUser() throws Exception {
     	ArrayList<User> allUsers = Main.admin.getAllUsers();
-    	ArrayList<AuctionListing> allAuctions = Main.auctions.getAuctionListings();
+    	ArrayList<AuctionListing> allAuctions = Main.auctioneer.getAuctionListings();
         for (int i = 0 ; i < allUsers.size(); i++) {
         	if (allUsers.get(i).equals(selectedUser)) {
         		allUsers.remove(i);
         		for (int j = 0 ; j < allAuctions.size(); j++) {
-        			if (allAuctions.get(j).getSeller().equals(selectedUser)) {
+        			if (allAuctions.get(j).getSellerUsername().equals(selectedUser.getUsername())) {
                 		allAuctions.remove(j);
         			}
         		}
@@ -213,7 +213,7 @@ public class AdminMenuController {
     
     @FXML
     private void handleDeleteArtwork() throws Exception {
-    	ArrayList<AuctionListing> allAuctions = Main.auctions.getAuctionListings();
+    	ArrayList<AuctionListing> allAuctions = Main.auctioneer.getAuctionListings();
         for (int i = 0 ; i < allAuctions.size(); i++) {
         	if (allAuctions.get(i).equals(selectedAuctionListing)) {
         		allAuctions.remove(i);

@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class UserManager
 {
-    private User currentUser = null;
+    private User currentUser;
     private ArrayList<User> allUsers;
     private ArrayList<Artwork> artworks;
 

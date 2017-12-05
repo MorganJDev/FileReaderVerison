@@ -113,7 +113,8 @@ public class MainMenuController
 
         Main.popup = window;
     }
-    
+
+    /*
     @FXML
     private void handleFavourite() {
        Main.admin.getCurrentUser().addFavouriteUser(selectedAuctionListing.getSeller());
@@ -124,4 +125,5 @@ public class MainMenuController
 
        alert.showAndWait();
     }
+    */
 }
