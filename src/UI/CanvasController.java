@@ -3,7 +3,7 @@ package UI;
 import javafx.fxml.FXML;
 
 /**
- * @author Georgi Georgiev
+ * @author Georgi  Georgiev
  */
 
 public class CanvasController
