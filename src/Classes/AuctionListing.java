@@ -18,6 +18,7 @@ public class AuctionListing {
 		this.artwork = artwork;
 		this.maxBids = maxBids;
 		this.reservePrice = reservePrice;
+		this.bids = new ArrayList<Bid>();
 	}
 
 	public AuctionListing(User seller, Artwork artwork, int maxBids, int reservePrice, String currentStatus, ArrayList<Bid> currentBids

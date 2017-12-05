@@ -52,6 +52,24 @@ public class LoginController
             Main.window.setOnCloseRequest(e -> Main.closeApplication());
         }
     }
+    
+    @FXML
+    public void handleAdminLogin() throws Exception
+    {
+        if(foundUser())
+        {
+            //Stage window = (Stage) ((Node)e.getSource()).getScene().getWindow();
+            Stage window = new Stage();
+
+            Parent current = FXMLLoader.load(getClass().getResource("AdminMenu.fxml"));
+
+            window.setScene(new Scene(current));
+            window.show();
+
+            Main.window.close();
+            Main.window = window;
+        }
+    }
 
     public Boolean foundUser()
     {

@@ -34,22 +34,24 @@ public class FileReader {
     }
     
     private static AuctionListing newListing(String line, UserManager um) {
+        AuctionListing newListing;
     	ArrayList<String> images = new ArrayList<String>();
     	Artwork artwork = null;
     	Scanner lineScanner = new Scanner(line);
+        lineScanner.useDelimiter("%");
     	String type = lineScanner.next();
     	String title = lineScanner.next();
 		String desc = lineScanner.next();
 		String creator = lineScanner.next();
 		int creationYear = lineScanner.nextInt();
-    	if (type == "painting") {
+    	if (type.equals("painting")) {
     		String image = lineScanner.next();
     		images.add(image);
     		int width = lineScanner.nextInt();
     		int height = lineScanner.nextInt();
     		Painting painting = new Painting(title,desc,creator,creationYear,images,width,height);
     		artwork = painting;
-    	} else if (type == "sculpture") {
+    	} else if (type.equals("sculpture")) {
     		while (!lineScanner.hasNextInt()) {
     			String image = lineScanner.next();
     			images.add(image);
@@ -62,7 +64,7 @@ public class FileReader {
     		artwork = sculpture;
     	}
     	for(User u : um.getAllUsers()) {
-    		if (u.getUsername() == lineScanner.next()) {
+    		if (u.getUsername().equals(lineScanner.next())) {
     			User seller = u;
     			int maxbids = lineScanner.nextInt();
     	    	int reserve = lineScanner.nextInt();
@@ -128,7 +130,7 @@ public class FileReader {
     	}
     }
     
-    private static void setFavouriteUsers(String filename, UserManager um) {
+    public static void setFavouriteUsers(String filename, UserManager um) {
     	File inputFile = new File (filename);
     	Scanner in = null;
     	try {

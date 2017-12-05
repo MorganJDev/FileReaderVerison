@@ -1,9 +1,6 @@
 package UI;
 	
-import Classes.FileWriter;
-import Classes.Painting;
-import Classes.User;
-import Classes.UserManager;
+import Classes.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,6 +20,7 @@ public class Main extends Application
     public static Stage window;
     public static Stage popup;
     public static UserManager admin;
+    public static Auctioneer auctioneer;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception
@@ -49,6 +47,7 @@ public class Main extends Application
 	public void SetupApplication()
     {
         admin = new UserManager();
+	    auctioneer = new Auctioneer();
 
         /*
         User newUser = new User("Dan", "Taylor","03748563859","03 Bryn Road","Brynmill",
@@ -64,11 +63,13 @@ public class Main extends Application
         */
 
         admin.populateArray();
+        auctioneer.populateArray();
         //System.out.println(admin.getAllUsers().get(0).getUsername());
     }
 
     public static void closeApplication()
     {
         admin.writeFiles();
+        auctioneer.writeFiles();
     }
 }
