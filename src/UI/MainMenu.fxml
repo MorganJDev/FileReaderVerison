@@ -229,7 +229,7 @@
                         <ImageView fitHeight="221.0" fitWidth="283.0" layoutX="431.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
                         <Button fx:id="editDetailsButton" layoutX="135.0" layoutY="357.0" mnemonicParsing="false" text="Edit details" />
                         <Button fx:id="newAvatarButton" layoutX="441.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleNewAvatar" text="Select new avatar" />
-                        <Button fx:id="customImageButton" layoutX="560.0" layoutY="259.0" mnemonicParsing="false" text="Create new custom image" />
+                        <Button fx:id="customImageButton" layoutX="560.0" layoutY="259.0" mnemonicParsing="false" text="Create new custom image" onAction="#handleNewCustom"/>
                      </children>
 								</AnchorPane>
 

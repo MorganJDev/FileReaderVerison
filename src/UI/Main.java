@@ -64,7 +64,6 @@ public class Main extends Application
 
         admin.populateArray();
         auctioneer.populateArray();
-        //System.out.println(admin.getAllUsers().get(0).getUsername());
     }
 
     public static void closeApplication()

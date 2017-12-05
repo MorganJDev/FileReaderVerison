@@ -114,16 +114,17 @@ public class MainMenuController
         Main.popup = window;
     }
 
-    /*
     @FXML
-    private void handleFavourite() {
-       Main.admin.getCurrentUser().addFavouriteUser(selectedAuctionListing.getSeller());
-       Alert alert = new Alert(AlertType.INFORMATION);
-       alert.initOwner(Main.window);
-       alert.setTitle("Artatawe : User favourited");
-       alert.setHeaderText(selectedAuctionListing.getSeller() + " has been added to your favourite sellers!");
+    private void handleNewCustom() throws Exception
+    {
+        Stage window = new Stage();
 
-       alert.showAndWait();
+        Parent current = FXMLLoader.load(getClass().getResource("Canvas.fxml"));
+
+        window.setScene(new Scene(current));
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.show();
+
+        Main.popup = window;
     }
-    */
 }
