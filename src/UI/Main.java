@@ -1,9 +1,6 @@
 package UI;
 	
-import Classes.FileWriter;
-import Classes.Painting;
-import Classes.User;
-import Classes.UserManager;
+import Classes.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
