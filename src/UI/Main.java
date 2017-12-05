@@ -14,6 +14,9 @@ import UI.*;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author Morgan Jones 904410
+ */
 
 public class Main extends Application
 {
@@ -53,7 +56,7 @@ public class Main extends Application
         User newUser2 = new User("Morgan", "Jones","03748563859","03 Bryn Road","Brynmill",
                 "Swansea", "Swansea", "SA2 0BT", "Morg98",LocalDateTime.now());
 
-        Painting newP = new Painting("Frame","Its a frame","Dan98",2012,null,50,50);
+        Painting newP = new Painting("Frame","Its a frame","Dan98",2012,null,50,50,200);
 
         admin.addArtworks(newP);
         admin.registerUser(newUser);

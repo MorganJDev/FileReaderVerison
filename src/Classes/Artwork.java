@@ -13,6 +13,8 @@ public class Artwork {
     private String creatorName;
     private int artCreationYear;
     private ArrayList<String> photos;
+    private double reserve;
+    private String status;
 
     /**
     * Creates a new artwork with already specified information
@@ -20,7 +22,6 @@ public class Artwork {
     * @param desc A description of the artwork
     * @param creator The name of the artworks creator
     * @param creationYear The year the artwork was created
-    * @param photo Images of the artwork
     */
     public Artwork(String title, String desc, String creator, int creationYear, ArrayList<String> photos) {
         this.title = title;
@@ -28,6 +29,15 @@ public class Artwork {
         this.creatorName = creator;
         this.artCreationYear = creationYear;
         this.photos = photos;
+        this.status = "Auction";
+    }
+
+    public void setReserve(double reserve) {
+        this.reserve = reserve;
+    }
+
+    public double getReserve() {
+        return reserve;
     }
 
     /**
@@ -57,7 +67,6 @@ public class Artwork {
 
     /**
      * Sets the description of the artwork
-     * @param descriptionThe artwork description
      */
     public void setDescription(String description)
     {

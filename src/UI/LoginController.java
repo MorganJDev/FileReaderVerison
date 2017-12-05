@@ -14,6 +14,10 @@ import javafx.scene.control.Button;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * @author Morgan Jones 904410
+ */
+
 public class LoginController
 {
     public javafx.scene.control.TextField usernameBox;

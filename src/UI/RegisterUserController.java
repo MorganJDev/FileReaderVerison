@@ -12,6 +12,10 @@ import java.time.LocalDateTime;
 
 import static UI.Main.closeApplication;
 
+/**
+ * @author Morgan Jones 904410
+ */
+
 public class RegisterUserController
 {
     public javafx.scene.control.TextField username;

@@ -1,8 +1,12 @@
 package UI;
 
 import Classes.Artwork;
+import Classes.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
@@ -10,12 +14,24 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import static UI.Main.closeApplication;
 
+/**
+ * @author Morgan Jones 904410
+ */
+
 public class MainMenuController
 {
+    public javafx.scene.control.TableView myArtworkTable;
+    public javafx.scene.control.TableColumn myReserveColumn;
+    public javafx.scene.control.TableColumn myListingStatus;
+    public javafx.scene.control.TableColumn myRemainingBids;
+    public javafx.scene.control.TableColumn myTitleColumn;
+
     @FXML
     private void handleLogout() throws Exception
     {
