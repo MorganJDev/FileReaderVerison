@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,36 +17,48 @@
       <Separator layoutX="181.0" layoutY="35.0" orientation="VERTICAL" prefHeight="368.0" prefWidth="15.0" />
       <Separator layoutY="240.0" prefHeight="1.0" prefWidth="187.0" />
       <Separator layoutX="187.0" layoutY="68.0" prefHeight="3.0" prefWidth="412.0" />
-      <Label layoutX="292.0" layoutY="34.0" text="Custom Profile Image">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-      <Circle fill="#2197ff00" layoutX="40.0" layoutY="67.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="100.0" fill="#13395b" layoutX="66.0" layoutY="67.0" startX="20.0" />
-      <Label layoutX="23.0" layoutY="96.0" text="Circle" />
-      <Label layoutX="109.0" layoutY="96.0" text="Line" />
-      <Text layoutX="28.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
-         <font>
-            <Font name="Book Antiqua Bold" size="25.0" />
-         </font>
-      </Text>
-      <Label layoutX="7.0" layoutY="181.0" text="Plain Text" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="37.0" layoutX="90.0" layoutY="141.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
-      <Label layoutX="93.0" layoutY="181.0" text="Rectangle" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="12.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffff99" height="30.0" layoutX="112.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#99ff99" height="30.0" layoutX="145.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#33ccff" height="30.0" layoutX="78.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3333ff" height="30.0" layoutX="78.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6600cc" height="30.0" layoutX="78.0" layoutY="359.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9999" height="30.0" layoutX="12.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="12.0" layoutY="359.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="30.0" layoutX="112.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff6600" height="30.0" layoutX="112.0" layoutY="359.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#33ff33" height="30.0" layoutX="145.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#009900" height="30.0" layoutX="145.0" layoutY="359.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#990000" height="30.0" layoutX="45.0" layoutY="359.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="30.0" layoutX="45.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffccccc4" height="30.0" layoutX="44.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+      <AnchorPane layoutY="35.0" prefHeight="206.0" prefWidth="187.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="14.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" width="64.0" />
+            <Circle fill="WHITE" layoutX="143.0" layoutY="61.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+            <Line endX="100.0" layoutX="-12.0" layoutY="148.0" onMouseClicked="#handleLineClick" startX="20.0" />
+            <Text layoutX="132.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+               <font>
+                  <Font name="Book Antiqua Bold" size="27.0" />
+               </font>
+            </Text>
+            <Label layoutX="10.0" layoutY="93.0" text="Rectangle" />
+            <Label layoutX="125.0" layoutY="93.0" text="Circle" />
+            <Label layoutX="29.0" layoutY="165.0" text="Line" />
+            <Label layoutX="111.0" layoutY="165.0" text="Plain Text" />
+         </children></AnchorPane>
+      <AnchorPane layoutY="241.0" prefHeight="161.0" prefWidth="187.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="29.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffff99" height="29.0" layoutX="116.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#99ff99" height="29.0" layoutX="151.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#33ccff" height="29.0" layoutX="82.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffcccc" height="29.0" layoutX="48.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#666666" height="29.0" layoutX="14.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="29.0" layoutX="14.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="29.0" layoutX="48.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#860202" height="29.0" layoutX="48.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3333ff" height="29.0" layoutX="82.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6600cc" height="29.0" layoutX="82.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="29.0" layoutX="116.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff6600" height="29.0" layoutX="116.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#33ff33" height="29.0" layoutX="151.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#009900" height="29.0" layoutX="151.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+         </children></AnchorPane>
+      <Canvas fx:id="canvasPane" height="332.0" layoutX="187.0" layoutY="70.0" onDragDetected="#handleDraw" width="412.0" />
+      <AnchorPane layoutX="187.0" layoutY="36.0" prefHeight="33.0" prefWidth="412.0">
+         <children>
+            <Label layoutX="83.0" layoutY="-2.0" text="Custom Profile Image">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
