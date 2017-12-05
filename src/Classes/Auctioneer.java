@@ -1,5 +1,7 @@
 package Classes;
 
+import UI.Main;
+
 import java.util.ArrayList;
 
 public class Auctioneer {
@@ -7,7 +9,7 @@ public class Auctioneer {
 	private ArrayList<AuctionListing> auctionListings;
 
 	public Auctioneer() {
-
+		auctionListings = new ArrayList<>();
 	}
 
 	public ArrayList<AuctionListing> getMyOpenAuctionListings(User user) {
@@ -66,4 +68,9 @@ public class Auctioneer {
 	public ArrayList<AuctionListing> getAuctionListings() {
 		return auctionListings;
 	}
+
+	public void populateArray()
+    {
+        this.auctionListings = (FileReader.readAuctions("auctions.txt", Main.admin));
+    }
 }
