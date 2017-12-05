@@ -23,6 +23,7 @@ public class Main extends Application
     public static Stage window;
     public static Stage popup;
     public static UserManager admin;
+    public static Auctioneer auctioneer;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception
@@ -49,6 +50,7 @@ public class Main extends Application
 	public void SetupApplication()
     {
         admin = new UserManager();
+	auctioneer = new Auctioneer();
 
         /*
         User newUser = new User("Dan", "Taylor","03748563859","03 Bryn Road","Brynmill",
