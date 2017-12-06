@@ -41,7 +41,7 @@ public class FileReader {
 
         return user;
     }
-    
+    //
     private static AuctionListing newListing(String line, UserManager um) {
         AuctionListing newListing;
     	ArrayList<String> images = new ArrayList<String>();

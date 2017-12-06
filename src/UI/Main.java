@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author Morgan Jones 904410
- * @version 1.0
+ * @version 1.0//
  */
 
 public class Main extends Application

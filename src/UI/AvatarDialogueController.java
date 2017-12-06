@@ -64,11 +64,11 @@ public class AvatarDialogueController implements Initializable
 
         return null;
     }
-
+//
     @FXML
     private void handleArt1()
     {
-        selected = "/ProfileImages/16627-210.png";
+        selected = "/ProfileImages/16627-21.png";
         artPhoto1.setOpacity(1.0);
         artPhoto2.setOpacity(0.5);
         artPhoto3.setOpacity(0.5);
@@ -80,7 +80,7 @@ public class AvatarDialogueController implements Initializable
     @FXML
     private void handleArt2()
     {
-        selected = "/ProfileImages/157815-100.png";
+        selected = "/ProfileImages/157815-10.png";
         artPhoto1.setOpacity(0.5);
         artPhoto2.setOpacity(1.0);
         artPhoto3.setOpacity(0.5);
@@ -92,7 +92,7 @@ public class AvatarDialogueController implements Initializable
     @FXML
     private void handleArt3()
     {
-        selected = "/ProfileImages/br-loogo-trans-blue-trans.png";
+        selected = "/ProfileImages/br-loogo-tans-blue-trans.png";
         artPhoto1.setOpacity(0.5);
         artPhoto2.setOpacity(0.5);
         artPhoto3.setOpacity(1.0);
@@ -104,7 +104,7 @@ public class AvatarDialogueController implements Initializable
     @FXML
     private void handleArt4()
     {
-        selected = "/ProfileImages/Gefffngar_Face.png";
+        selected = "/ProfileImages/Gefffngr_Face.png";
         artPhoto1.setOpacity(0.5);
         artPhoto2.setOpacity(0.5);
         artPhoto3.setOpacity(0.5);
@@ -116,7 +116,7 @@ public class AvatarDialogueController implements Initializable
     @FXML
     private void handleArt5()
     {
-        selected = "/ProfileImages/profile-23f98782_960_720.png";
+        selected = "/ProfileImages/profie-23f98782_960_720.png";
         artPhoto1.setOpacity(0.5);
         artPhoto2.setOpacity(0.5);
         artPhoto3.setOpacity(0.5);
@@ -128,7 +128,7 @@ public class AvatarDialogueController implements Initializable
     @FXML
     private void handleArt6()
     {
-        selected = "/ProfileImages/twittfer.png";
+        selected = "/ProfileImages/twittfr.png";
         artPhoto1.setOpacity(0.5);
         artPhoto2.setOpacity(0.5);
         artPhoto3.setOpacity(0.5);
@@ -150,31 +150,31 @@ public class AvatarDialogueController implements Initializable
     {
         selected = findUser().getProfileImage();
 
-        artPhoto1.setImage(new Image("/ProfileImages/16627-210.png"));
-        artPhoto2.setImage(new Image("/ProfileImages/157815-100.png"));
-        artPhoto3.setImage(new Image("/ProfileImages/br-loogo-trans-blue-trans.png"));
-        artPhoto4.setImage(new Image("/ProfileImages/Gefffngar_Face.png"));
-        artPhoto5.setImage(new Image("/ProfileImages/profile-23f98782_960_720.png"));
-        artPhoto6.setImage(new Image("/ProfileImages/twittfer.png"));
+        artPhoto1.setImage(new Image("/ProfileImages/16627-21.png"));
+        artPhoto2.setImage(new Image("/ProfileImages/157815-10.png"));
+        artPhoto3.setImage(new Image("/ProfileImages/br-loogo-tans-blue-trans.png"));
+        artPhoto4.setImage(new Image("/ProfileImages/Gefffngr_Face.png"));
+        artPhoto5.setImage(new Image("/ProfileImages/profie-23f98782_960_720.png"));
+        artPhoto6.setImage(new Image("/ProfileImages/twittfr.png"));
 
         switch(selected)
         {
-            case "/ProfileImages/16627-210.png":
+            case "/ProfileImages/16627-21.png":
                 handleArt1();
                 break;
-            case "/ProfileImages/157815-100.png":
+            case "/ProfileImages/157815-10.png":
                 handleArt2();
                 break;
-            case "/ProfileImages/br-loogo-trans-blue-trans.png":
+            case "/ProfileImages/br-loogo-tans-blue-trans.png":
                 handleArt3();
                 break;
-            case "/ProfileImages/Gefffngar_Face.png":
+            case "/ProfileImages/Gefffngr_Face.png":
                 handleArt4();
                 break;
-            case "/ProfileImages/profile-23f98782_960_720.png":
+            case "/ProfileImages/profie-23f98782_960_720.png":
                 handleArt5();
                 break;
-            case "/ProfileImages/twittfer.png":
+            case "/ProfileImages/twittfr.png":
                 handleArt6();
                 break;
             default:
