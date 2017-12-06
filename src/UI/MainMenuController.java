@@ -131,7 +131,7 @@ public class MainMenuController implements Initializable
         bidStatusColumn.setCellValueFactory(
                 cellData -> new SimpleStringProperty(cellData.getValue().getStatus().toString()));
 
-        // bind the table fields for the Completed Auctions tab
+        // bind the table fields for the Completed Artwork tab
         doneTitleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSellerUsername()));
         doneBuyerColumn
                 .setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getWinningBidder().getUsername()));
@@ -446,11 +446,23 @@ public class MainMenuController implements Initializable
             bidTable.setItems(bids);
 
             if (Main.auctioneer != null) {
-                myArtworkTable.setItems((ObservableList<AuctionListing>) Main.auctioneer.getMyOpenAuctionListings(user));
+                ObservableList<AuctionListing> myArtworks = FXCollections.observableArrayList();
+                for (AuctionListing al : Main.auctioneer.getMyOpenAuctionListings(user)) {
+                    myArtworks.add(al);
+                }
+                myArtworkTable.setItems(myArtworks);
 
-                browseArtworkTable.setItems((ObservableList<AuctionListing>) Main.auctioneer.getOtherAuctionListings(user));
+                ObservableList<AuctionListing> browseArtworks = FXCollections.observableArrayList();
+                for (AuctionListing al : Main.auctioneer.getOtherAuctionListings(user)) {
+                    browseArtworks.add(al);
+                }
+                browseArtworkTable.setItems(browseArtworks);
 
-                doneTable.setItems((ObservableList<AuctionListing>) Main.auctioneer.getMyClosedAuctionListings(user));
+                ObservableList<AuctionListing>  doneAuctions = FXCollections.observableArrayList();
+                for (AuctionListing al : Main.auctioneer.getMyClosedAuctionListings(user)) {
+                    doneAuctions.add(al);
+                }
+                doneTable.setItems(doneAuctions);
             }
         }
         */
