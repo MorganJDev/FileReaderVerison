@@ -103,7 +103,7 @@ public class MainMenuController implements Initializable
     private AuctionListing selectedAuctionListing;
 
     @FXML
-    private void initialize()
+    private void setupTable()
     {
         // bind the table fields for the My Artwork tab
         myTitleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getArtworkTitle()));
@@ -468,6 +468,7 @@ public class MainMenuController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
+        setupTable();
         populateTables();
 
         showProfile();
