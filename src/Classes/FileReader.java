@@ -45,8 +45,10 @@ public class FileReader {
 		String creator = lineScanner.next();
 		int creationYear = lineScanner.nextInt();
     	if (type.equals("painting")) {
-    		String image = lineScanner.next();
-    		images.add(image);
+			while (!lineScanner.hasNextInt()) {
+				String image = lineScanner.next();
+				images.add(image);
+			}
     		int width = lineScanner.nextInt();
     		int height = lineScanner.nextInt();
     		Painting painting = new Painting(title,desc,creator,creationYear,images,width,height);

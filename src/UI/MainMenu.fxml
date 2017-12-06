@@ -90,7 +90,7 @@
 										<Label fx:id="myArtDescLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="31.0" prefHeight="190.0" prefWidth="403.0" style="-fx-background-color: DAE6F3;" text="Label" wrapText="true" />
 										<ButtonBar layoutX="175.0" layoutY="379.0" prefHeight="40.0" prefWidth="241.0">
 											<buttons>
-												<Button fx:id="addPhotosButton" mnemonicParsing="false" onAction="#handleAddPhotos" text="Add Photos" />
+												<Button fx:id="addPhotosButton" mnemonicParsing="false" onAction="#handleAddPhotos" text="Photos" />
 											</buttons>
 										</ButtonBar>
                               <ButtonBar layoutX="14.0" layoutY="379.0" prefHeight="40.0" prefWidth="225.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0">

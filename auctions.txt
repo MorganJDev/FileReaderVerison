@@ -1,1 +1,2 @@
-painting%testpainting%this is a painting%Leonardo da vinci%1970%testimage.png%30%40%Dan98%5%100%
+painting%testpainting%this is a painting%Leonardo da vinci%1970%/cheese_PNG25334.png%30%40%Dan98%5%100%
+sculpture%Egg%AN EGG%Humpty%2015%/Untitled.png%\cheese_PNG25334.png%5%5%4%Egg%Dan98%10%30%

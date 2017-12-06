@@ -21,6 +21,7 @@ public class Main extends Application
     public static Stage popup;
     public static UserManager admin;
     public static Auctioneer auctioneer;
+    public static Artwork currentView;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception
