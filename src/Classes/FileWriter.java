@@ -10,7 +10,7 @@ public class FileWriter {
 	public static void writeUsers (String filename, UserManager um) {
 		File outputFile = new File (filename);
 		PrintWriter out = null;
-		String profileImage = "";
+		String profileImage = "%";
 		try {
 			out = new PrintWriter (outputFile);
 		}
@@ -25,8 +25,8 @@ public class FileWriter {
 			out.println(u.getForename() + "%" + u.getSurname() + "%" + u.getUsername() + "%" +
 					u.getTelephoneNumber() + "%" + u.getAddressLineOne() + "%" + u.getAddressLineTwo() + "%" +
 					u.getCity() + "%" + u.getCounty() + "%" + u.getPostcode() + "%" + u.getLastLogin() +
-					"%" + profileImage);
-			profileImage = "";
+					profileImage);
+			profileImage = "%";
 		}
 		out.close();
 	}
