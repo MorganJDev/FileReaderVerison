@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="354.0" minWidth="600.0" prefHeight="520.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainMenuController">
+<AnchorPane minHeight="354.0" minWidth="600.0" prefHeight="520.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainMenuController">
 	<children>
 		<TabPane layoutX="6.0" layoutY="7.0" prefHeight="462.0" prefWidth="861.0" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
@@ -94,7 +95,7 @@
 										</ButtonBar>
                               <ButtonBar layoutX="14.0" layoutY="379.0" prefHeight="40.0" prefWidth="225.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0">
                                 <buttons>
-                                  <Button fx:id="newSculptureButton" mnemonicParsing="false" text="New Sculpture" ButtonBar.buttonData="LEFT" />
+                                  <Button fx:id="newSculptureButton" mnemonicParsing="false" onAction="#handleNewSculpture" text="New Sculpture" ButtonBar.buttonData="LEFT" />
                         		  <Button fx:id="newPaintingButton" mnemonicParsing="false" onAction="#handleNewPainting" text="New Painting" ButtonBar.buttonData="LEFT" />
                                 </buttons>
                               </ButtonBar>
@@ -214,22 +215,22 @@
                               <Label text="City:" GridPane.rowIndex="6" />
                               <Label text="County:" GridPane.rowIndex="7" />
                               <Label text="Postcode:" GridPane.rowIndex="8" />
-                              <Label fx:id="usernameLabel" text="Label" GridPane.columnIndex="1" />
-                              <Label fx:id="firstNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label fx:id="lastNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label fx:id="telNoLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label fx:id="addOneLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <Label fx:id="addTwoLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <Label fx:id="cityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <Label fx:id="countyLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                              <Label fx:id="postCodeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <TextField fx:id="usernameField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              <TextField fx:id="firstNameField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="lastNameField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="telNoField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="addOneField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="addTwoField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="cityField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="countyField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <TextField fx:id="postCodeField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                            </children>
                         </GridPane>
                         <Label layoutX="135.0" layoutY="23.0" text="Your profile:" />
                         <ImageView fitHeight="221.0" fitWidth="283.0" layoutX="431.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="editDetailsButton" layoutX="135.0" layoutY="357.0" mnemonicParsing="false" text="Edit details" />
+                        <Button fx:id="editDetailsButton" layoutX="135.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleEditProfile" text="Edit details" />
                         <Button fx:id="newAvatarButton" layoutX="441.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleNewAvatar" text="Select new avatar" />
-                        <Button fx:id="customImageButton" layoutX="560.0" layoutY="259.0" mnemonicParsing="false" text="Create new custom image" onAction="#handleNewCustom"/>
+                        <Button fx:id="customImageButton" layoutX="560.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleNewCustom" text="Create new custom image" />
                      </children>
 								</AnchorPane>
 
