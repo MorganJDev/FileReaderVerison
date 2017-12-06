@@ -429,9 +429,11 @@ public class MainMenuController implements Initializable
      * @param resources The resources used to localize the root object, or {@code null}
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         User user = Main.admin.getCurrentUser();
 
+        /*
         if (user != null) {
             ObservableList<Bid> bids = FXCollections.observableArrayList();
             for(AuctionListing al : Main.auctioneer.getAuctionListings()) {
@@ -451,6 +453,7 @@ public class MainMenuController implements Initializable
                 doneTable.setItems((ObservableList<AuctionListing>) Main.auctioneer.getMyClosedAuctionListings(user));
             }
         }
+        */
         showProfile();
 
         if (Main.isReloaded)

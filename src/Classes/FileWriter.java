@@ -20,7 +20,7 @@ public class FileWriter {
 		}
 		for (User u : um.getAllUsers()) {
 			if(!(u.getProfileImage().equals(""))) {
-				profileImage = u.getProfileImage();
+				profileImage += u.getProfileImage();
 			}
 			out.println(u.getForename() + "%" + u.getSurname() + "%" + u.getUsername() + "%" +
 					u.getTelephoneNumber() + "%" + u.getAddressLineOne() + "%" + u.getAddressLineTwo() + "%" +
