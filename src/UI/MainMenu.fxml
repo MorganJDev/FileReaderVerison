@@ -18,7 +18,7 @@
 
 <AnchorPane minHeight="354.0" minWidth="600.0" prefHeight="520.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainMenuController">
 	<children>
-		<TabPane layoutX="6.0" layoutY="7.0" prefHeight="462.0" prefWidth="861.0" tabClosingPolicy="UNAVAILABLE">
+		<TabPane layoutX="6.0" layoutY="7.0" prefHeight="462.0" prefWidth="861.0" tabClosingPolicy="UNAVAILABLE" fx:id="tabMenu">
 			<tabs>
 				<Tab text="My Artwork">
 					<content>
@@ -185,7 +185,7 @@
 						</SplitPane>
 					</content>
 				</Tab>
-				<Tab text="Profile">
+				<Tab text="Profile" fx:id="profileTab">
 					<content>
 						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="433.0" prefWidth="425.0">
                      <children>
@@ -227,7 +227,7 @@
                            </children>
                         </GridPane>
                         <Label layoutX="135.0" layoutY="23.0" text="Your profile:" />
-                        <ImageView fitHeight="221.0" fitWidth="283.0" layoutX="431.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="profileImageView" fitHeight="221.0" fitWidth="283.0" layoutX="431.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
                         <Button fx:id="editDetailsButton" layoutX="135.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleEditProfile" text="Edit details" />
                         <Button fx:id="newAvatarButton" layoutX="441.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleNewAvatar" text="Select new avatar" />
                         <Button fx:id="customImageButton" layoutX="560.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleNewCustom" text="Create new custom image" />

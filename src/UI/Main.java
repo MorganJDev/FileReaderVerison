@@ -22,6 +22,7 @@ public class Main extends Application
     public static UserManager admin;
     public static Auctioneer auctioneer;
     public static Artwork currentView;
+    public static boolean isReloaded;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception
@@ -47,6 +48,7 @@ public class Main extends Application
 
 	public void SetupApplication()
     {
+        isReloaded = false;
         admin = new UserManager();
 	    auctioneer = new Auctioneer();
 

@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -44,6 +45,10 @@ public class MainMenuController implements Initializable
     public javafx.scene.control.TextField countyField;
     public javafx.scene.control.TextField postCodeField;
     public javafx.scene.control.Button editDetailsButton;
+    public javafx.scene.image.ImageView profileImageView;
+
+    public javafx.scene.control.Tab profileTab;
+    public javafx.scene.control.TabPane tabMenu;
 
     @FXML
     private void showProfile()
@@ -58,6 +63,8 @@ public class MainMenuController implements Initializable
         cityField.setText(newUser.getCity());
         countyField.setText(newUser.getCounty());
         postCodeField.setText(newUser.getPostcode());
+
+        profileImageView.setImage(new Image(Main.admin.getCurrentUser().getProfileImage()));
     }
 
     @FXML
@@ -236,5 +243,11 @@ public class MainMenuController implements Initializable
     public void initialize(URL location, ResourceBundle resources)
     {
         showProfile();
+
+        if (Main.isReloaded)
+        {
+            tabMenu.getSelectionModel().select(profileTab);
+            Main.isReloaded = false;
+        }
     }
 }

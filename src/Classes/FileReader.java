@@ -29,7 +29,16 @@ public class FileReader {
         
         User user = new User (forename, surname, username, telephoneNumber, 
             addressLineOne, addressLineTwo, city, county, postcode, lastLoginDate);
+
+		if (lineScanner.hasNext())
+		{
+			String profileImage = lineScanner.next();
+			user.setProfileImage(profileImage);
+			profileImage = "";
+		}
+
         lineScanner.close();
+
         return user;
     }
     
