@@ -420,20 +420,10 @@ public class MainMenuController implements Initializable
         Main.popup = window;
     }
 
-    /**
-     * Called to initialize a controller after its root element  has been
-     * completely processed.
-     *
-     * @param location  The location used to resolve relative paths for the root object, or
-     *                  {@code null} if the location is not known.
-     * @param resources The resources used to localize the root object, or {@code null}
-     */
-    @Override
-    public void initialize(URL location, ResourceBundle resources)
+    public void populateTables()
     {
         User user = Main.admin.getCurrentUser();
 
-        /*
         if (user != null) {
             ObservableList<Bid> bids = FXCollections.observableArrayList();
             for(AuctionListing al : Main.auctioneer.getAuctionListings()) {
@@ -465,7 +455,21 @@ public class MainMenuController implements Initializable
                 doneTable.setItems(doneAuctions);
             }
         }
-        */
+    }
+
+    /**
+     * Called to initialize a controller after its root element  has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null}
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        populateTables();
+
         showProfile();
 
         if (Main.isReloaded)
