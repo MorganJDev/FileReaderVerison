@@ -1,7 +1,8 @@
 package UI;
 
-import Classes.Artwork;
-import Classes.User;
+import Classes.*;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,9 +10,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -27,12 +30,198 @@ import static UI.Main.closeApplication;
 
 public class MainMenuController implements Initializable
 {
-    // My Artwork Tab
-    public javafx.scene.control.TableView myArtworkTable;
-    public javafx.scene.control.TableColumn myReserveColumn;
-    public javafx.scene.control.TableColumn myListingStatus;
-    public javafx.scene.control.TableColumn myRemainingBids;
-    public javafx.scene.control.TableColumn myTitleColumn;
+    @FXML
+    private TableView<AuctionListing> myArtworkTable;
+    @FXML
+    private TableColumn<AuctionListing, String> myTitleColumn;
+    @FXML
+    private TableColumn<AuctionListing, Integer> myReserveColumn;
+    @FXML
+    private TableColumn<AuctionListing, String> myListingStatus;
+    @FXML
+    private TableColumn<AuctionListing, String> myRemainingBids;
+
+    @FXML
+    private TableView<AuctionListing> browseArtworkTable;
+    @FXML
+    private TableColumn<AuctionListing, String> browseTitleColumn;
+    @FXML
+    private TableColumn<AuctionListing, String> browseSellerColumn;
+
+    @FXML
+    private Label artDescriptionLabel;
+    @FXML
+    private Label yearCreatedLabel;
+    @FXML
+    private Label createdByLabel;
+    @FXML
+    private Label heightLabel;
+    @FXML
+    private Label widthLabel;
+    @FXML
+    private Label depthLabel;
+    @FXML
+    private Label materialLabel;
+
+    @FXML
+    private Label artDescriptionLabel2;
+    @FXML
+    private Label yearCreatedLabel2;
+    @FXML
+    private Label createdByLabel2;
+    @FXML
+    private Label heightLabel2;
+    @FXML
+    private Label widthLabel2;
+    @FXML
+    private Label depthLabel2;
+    @FXML
+    private Label materialLabel2;
+
+    @FXML
+    private TableView<Bid> bidTable;
+    @FXML
+    private TableColumn<Bid, String> bidDateColumn;
+    @FXML
+    private TableColumn<Bid, String> bidTitleColumn;
+    @FXML
+    private TableColumn<Bid, String> bidSellerColumn;
+    @FXML
+    private TableColumn<Bid, Integer> bidAmountColumn;
+    @FXML
+    private TableColumn<Bid, String> bidStatusColumn;
+
+    @FXML
+    private TableView<AuctionListing> doneTable;
+    @FXML
+    private TableColumn<AuctionListing, String> doneTitleColumn;
+    @FXML
+    private TableColumn<AuctionListing, String> doneBuyerColumn;
+    @FXML
+    private TableColumn<AuctionListing, Integer> doneAmountColumn;
+
+    private AuctionListing selectedAuctionListing;
+
+    @FXML
+    private void initialize()
+    {
+        // bind the table fields for the My Artwork tab
+        myTitleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getArtworkTitle()));
+        myReserveColumn
+                .setCellValueFactory(cellData ->  new SimpleIntegerProperty(cellData.getValue().reservePrice()).asObject());
+        myListingStatus.setCellValueFactory(
+                cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
+        myRemainingBids.setCellValueFactory(
+                cellData -> new SimpleStringProperty("" + cellData.getValue().getRemainingBids()));
+
+        // bind the table fields for the Browse Artwork tab
+        browseTitleColumn
+                .setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getArtworkTitle()));
+        browseSellerColumn
+                .setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getSellerUsername()));
+
+        // bind the table fields for the My Bids tab
+        bidDateColumn.setCellValueFactory(
+                cellData -> new SimpleStringProperty(cellData.getValue().getBidPlaced().toString()));
+        bidTitleColumn.setCellValueFactory(
+                cellData ->  new SimpleStringProperty(cellData.getValue().getListing().getArtworkTitle()));
+        bidSellerColumn.setCellValueFactory(
+                cellData ->  new SimpleStringProperty(cellData.getValue().getListing().getSellerUsername()));
+        bidAmountColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getAmount()).asObject());
+        bidStatusColumn.setCellValueFactory(
+                cellData -> new SimpleStringProperty(cellData.getValue().getStatus().toString()));
+
+        // bind the table fields for the Completed Auctions tab
+        doneTitleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSellerUsername()));
+        doneBuyerColumn
+                .setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getWinningBidder().getUsername()));
+        doneAmountColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().winningPrice()).asObject());
+
+        // Clear details when nothing is selected on tables
+        showMyArtworkDetails(null);
+        showBrowseArtworkDetails(null);
+
+        // Listen for selection changes and show details when changed.
+        myArtworkTable.getSelectionModel().selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> showMyArtworkDetails(newValue));
+        browseArtworkTable.getSelectionModel().selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> showBrowseArtworkDetails(newValue));
+
+    }
+
+    private void showMyArtworkDetails(AuctionListing auctionListing) {
+        selectedAuctionListing = auctionListing;
+
+        if (auctionListing != null) {
+            Artwork artwork = auctionListing.getArtwork();
+
+            artDescriptionLabel.setText(artwork.getDescription());
+            yearCreatedLabel.setText("" + artwork.getCreationYear());
+            createdByLabel.setText(artwork.getCreatorName());
+
+            if (artwork instanceof Painting) {
+                Painting painting = (Painting) artwork;
+
+                heightLabel.setText("" + painting.getHeight());
+                widthLabel.setText("" + painting.getWidth());
+                depthLabel.setText("N/A");
+                materialLabel.setText("N/A");
+            } else if (artwork instanceof Sculpture) {
+                Sculpture sculpture = (Sculpture) artwork;
+
+                heightLabel.setText("" + sculpture.getHeight());
+                widthLabel.setText("" + sculpture.getWidth());
+                depthLabel.setText("" + sculpture.getDepth());
+                materialLabel.setText(sculpture.getMaterial());
+            } else {
+                // Auction listing is null, remove all the text.
+                artDescriptionLabel.setText("");
+                yearCreatedLabel.setText("");
+                createdByLabel.setText("");
+                heightLabel.setText("");
+                widthLabel.setText("");
+                depthLabel.setText("");
+                materialLabel.setText("");
+            }
+        }
+    }
+
+    private void showBrowseArtworkDetails(AuctionListing auctionListing) {
+        selectedAuctionListing = auctionListing;
+
+        if (auctionListing != null) {
+            Artwork artwork = auctionListing.getArtwork();
+
+            artDescriptionLabel2.setText(artwork.getDescription());
+            yearCreatedLabel2.setText("" + artwork.getCreationYear());
+            createdByLabel2.setText(artwork.getCreatorName());
+
+            if (artwork instanceof Painting) {
+                Painting painting = (Painting) artwork;
+
+                heightLabel2.setText("" + painting.getHeight());
+                widthLabel2.setText("" + painting.getWidth());
+                depthLabel2.setText("N/A");
+                materialLabel2.setText("N/A");
+            } else if (artwork instanceof Sculpture) {
+                Sculpture sculpture = (Sculpture) artwork;
+
+                heightLabel2.setText("" + sculpture.getHeight());
+                widthLabel2.setText("" + sculpture.getWidth());
+                depthLabel2.setText("" + sculpture.getDepth());
+                materialLabel2.setText(sculpture.getMaterial());
+            } else {
+                // Auction listing is null, remove all the text.
+                artDescriptionLabel2.setText("");
+                yearCreatedLabel2.setText("");
+                createdByLabel2.setText("");
+                heightLabel2.setText("");
+                widthLabel2.setText("");
+                depthLabel2.setText("");
+                materialLabel2.setText("");
+            }
+        }
+    }
 
     // Profile tab
     public javafx.scene.control.TextField usernameField;
@@ -237,11 +426,31 @@ public class MainMenuController implements Initializable
      *
      * @param location  The location used to resolve relative paths for the root object, or
      *                  {@code null} if the location is not known.
-     * @param resources The resources used to localize the root object, or {@code null}
+     * @param resources The resources used to localize the root object, or {@code null} if
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources)
-    {
+    public void initialize(URL location, ResourceBundle resources) {
+        User user = Main.admin.getCurrentUser();
+
+        if (user != null) {
+            ObservableList<Bid> bids = FXCollections.observableArrayList();
+            for(AuctionListing al : Main.auctioneer.getAuctionListings()) {
+                for (Bid b : al.getBids()) {
+                    if (b.getBidder() == user) {
+                        bids.add(b);
+                    }
+                }
+            }
+            bidTable.setItems(bids);
+
+            if (Main.auctioneer != null) {
+                myArtworkTable.setItems((ObservableList<AuctionListing>) Main.auctioneer.getMyOpenAuctionListings(user));
+
+                browseArtworkTable.setItems((ObservableList<AuctionListing>) Main.auctioneer.getOtherAuctionListings(user));
+
+                doneTable.setItems((ObservableList<AuctionListing>) Main.auctioneer.getMyClosedAuctionListings(user));
+            }
+        }
         showProfile();
 
         if (Main.isReloaded)
