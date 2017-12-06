@@ -79,11 +79,11 @@ public class FileReader {
     			User seller = u;
     			int maxbids = lineScanner.nextInt();
     	    	int reserve = lineScanner.nextInt();
+				String status = lineScanner.next();
     	    	if (lineScanner.hasNext()) {
     	    		for(User z : um.getAllUsers()) {
     	    			if (u.getUsername() == lineScanner.next()) {
     	    				User winner = z;
-    	    				String status = lineScanner.next();
     	    				int winPrice = lineScanner.nextInt();	
     	    				ArrayList<Bid> bids = newBid(lineScanner, um);
     	    				AuctionListing auction = new AuctionListing(seller, artwork, maxbids, reserve, status, bids, winner, winPrice);
@@ -96,6 +96,7 @@ public class FileReader {
     	    		}
     	    	} else {
     	    		AuctionListing auction = new AuctionListing(seller, artwork, maxbids,reserve);
+    	    		auction.setStatus(status);
     	    		lineScanner.close();
     				return auction;
     	    	}

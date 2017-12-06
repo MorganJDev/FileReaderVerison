@@ -85,9 +85,10 @@ public class FileWriter {
 				out.print(sculpt.getWidth() + "%" + sculpt.getHeight() + "%" +
 						sculpt.getDepth() + "%" + sculpt.getMaterial() + "%");
 			}
-			out.print(al.getSellerUsername() + "%" + al.getMaxBids() + "%" + al.getReservePrice() + "%");
+			out.print(al.getSellerUsername() + "%" + al.getMaxBids() + "%" + al.getReservePrice() + "%" +
+				al.getStatus());
 			if (al.getBids().size() != 0) {
-				out.print(al.getWinningBidder().getUsername() + "%" + al.getStatus() + "%" +
+				out.print(al.getWinningBidder().getUsername() + "%" +
 						al.getWinningPrice() + "%");
 				for (Bid b : al.getBids()) {
 					out.print(b.getBidder().getUsername() + ";" + b.getAmount() + ";" +
