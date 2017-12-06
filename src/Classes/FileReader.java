@@ -78,6 +78,9 @@ public class FileReader {
     	    				int winPrice = lineScanner.nextInt();	
     	    				ArrayList<Bid> bids = newBid(lineScanner, um);
     	    				AuctionListing auction = new AuctionListing(seller, artwork, maxbids, reserve, status, bids, winner, winPrice);
+    	    				for (Bid b : auction.getBids()) {
+    	    					b.setListing(auction);
+							}
     	    				lineScanner.close();
     	    				return auction;
     	    			}

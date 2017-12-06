@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 
 public class Bid {
 
+	private AuctionListing auctionListing;
 	private User bidder;
 	private int amount;
 	private String status;
@@ -37,6 +38,13 @@ public class Bid {
 	}
 
 	/**
+	 * @return The listing the bid is placed on
+	 */
+	public AuctionListing getListing() {
+		return auctionListing;
+	}
+
+	/**
 	 * @return The bidder
 	 */
 	public User getBidder() {
@@ -59,6 +67,10 @@ public class Bid {
 	
 	public String getStatus() {
 		return this.status;
+	}
+
+	public void setListing(AuctionListing auctionListing) {
+		this.auctionListing = auctionListing;
 	}
 	
 	public void setStatus(String newstat) {
