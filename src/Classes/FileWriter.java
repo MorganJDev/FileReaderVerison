@@ -59,15 +59,22 @@ public class FileWriter {
 				out.print("painting%");
 				Painting paint = (Painting) art;
 				out.print(paint.getTitle() + "%" + paint.getDescription() + "%" +
-						paint.getCreatorName() + "%" + paint.getCreationYear() + "%" +
-						paint.getPhotos().get(0) + "%" + paint.getWidth() + "%" + paint.getHeight() + "%");
+						paint.getCreatorName() + "%" + paint.getCreationYear() + "%");
+						if (paint.getPhotos() != null)
+						{
+							out.print(paint.getPhotos().get(0) + "%");
+						}
+						out.print(paint.getWidth() + "%" + paint.getHeight() + "%");
 			} else if (al.getArtwork() instanceof Sculpture) {
 				out.print("sculpture%");
 				Sculpture sculpt = (Sculpture) art;
 				out.print(sculpt.getTitle() + "%" + sculpt.getDescription() + "%" +
 						sculpt.getCreatorName() + "%" + sculpt.getCreationYear() + "%");
-				for(String s : sculpt.getPhotos()) {
-					out.print(s + "%");
+				if (sculpt.getPhotos() != null)
+				{
+					for (String s : sculpt.getPhotos()) {
+						out.print(s + "%");
+					}
 				}
 				out.print(sculpt.getWidth() + "%" + sculpt.getHeight() + "%" +
 						sculpt.getDepth() + "%" + sculpt.getMaterial() + "%");
@@ -82,8 +89,9 @@ public class FileWriter {
 				}
 			}
 			out.println("");
-			out.close();
 		}
+
+		out.close();
 	}
 
 }
