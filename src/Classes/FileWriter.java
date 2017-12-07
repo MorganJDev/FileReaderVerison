@@ -4,12 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
+//
 public class FileWriter {
 	
 	public static void writeUsers (String filename, UserManager um) {
 		File outputFile = new File (filename);
 		PrintWriter out = null;
+		String profileImage = "%";
 		try {
 			out = new PrintWriter (outputFile);
 		}
@@ -18,9 +19,14 @@ public class FileWriter {
 			System.exit (0);
 		}
 		for (User u : um.getAllUsers()) {
+			if(!(u.getProfileImage().equals(""))) {
+				profileImage += u.getProfileImage();
+			}
 			out.println(u.getForename() + "%" + u.getSurname() + "%" + u.getUsername() + "%" +
 					u.getTelephoneNumber() + "%" + u.getAddressLineOne() + "%" + u.getAddressLineTwo() + "%" +
-					u.getCity() + "%" + u.getCounty() + "%" + u.getPostcode() + "%" + u.getLastLogin());
+					u.getCity() + "%" + u.getCounty() + "%" + u.getPostcode() + "%" + u.getLastLogin() +
+					profileImage);
+			profileImage = "%";
 		}
 		out.close();
 	}
@@ -59,22 +65,30 @@ public class FileWriter {
 				out.print("painting%");
 				Painting paint = (Painting) art;
 				out.print(paint.getTitle() + "%" + paint.getDescription() + "%" +
-						paint.getCreatorName() + "%" + paint.getCreationYear() + "%" +
-						paint.getPhotos().get(0) + "%" + paint.getWidth() + "%" + paint.getHeight() + "%");
+						paint.getCreatorName() + "%" + paint.getCreationYear() + "%");
+						if (paint.getPhotos() != null)
+						{
+							out.print(paint.getPhotos().get(0) + "%");
+						}
+						out.print(paint.getWidth() + "%" + paint.getHeight() + "%");
 			} else if (al.getArtwork() instanceof Sculpture) {
 				out.print("sculpture%");
 				Sculpture sculpt = (Sculpture) art;
 				out.print(sculpt.getTitle() + "%" + sculpt.getDescription() + "%" +
 						sculpt.getCreatorName() + "%" + sculpt.getCreationYear() + "%");
-				for(String s : sculpt.getPhotos()) {
-					out.print(s + "%");
+				if (sculpt.getPhotos() != null)
+				{
+					for (String s : sculpt.getPhotos()) {
+						out.print(s + "%");
+					}
 				}
 				out.print(sculpt.getWidth() + "%" + sculpt.getHeight() + "%" +
 						sculpt.getDepth() + "%" + sculpt.getMaterial() + "%");
 			}
-			out.print(al.getSellerUsername() + "%" + al.getMaxBids() + "%" + al.getReservePrice() + "%");
+			out.print(al.getSellerUsername() + "%" + al.getMaxBids() + "%" + al.getReservePrice() + "%" +
+				al.getStatus());
 			if (al.getBids().size() != 0) {
-				out.print(al.getWinningBidder().getUsername() + "%" + al.getStatus() + "%" +
+				out.print(al.getWinningBidder().getUsername() + "%" +
 						al.getWinningPrice() + "%");
 				for (Bid b : al.getBids()) {
 					out.print(b.getBidder().getUsername() + ";" + b.getAmount() + ";" +
@@ -82,8 +96,9 @@ public class FileWriter {
 				}
 			}
 			out.println("");
-			out.close();
 		}
+
+		out.close();
 	}
 
 }

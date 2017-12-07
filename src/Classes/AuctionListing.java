@@ -158,6 +158,8 @@ public class AuctionListing {
 		// add this bid to the auction listing
 		bids.add(newbid);
 
+		newbid.setListing(this);
+
 		// close the auction if there are no more bid slots remaining
 		if (getRemainingBids() == 0) {
 			boolean winnerFound = false;

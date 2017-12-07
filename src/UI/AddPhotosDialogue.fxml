@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -15,13 +16,18 @@
 
 <AnchorPane prefHeight="480.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AddPhotosController">
    <children>
-      <Button fx:id="previousButton" layoutX="438.0" layoutY="440.0" mnemonicParsing="false" text="&lt; Previous" />
-      <Button fx:id="nextButton" layoutX="520.0" layoutY="440.0" mnemonicParsing="false" text="Next &gt;" />
-      <ImageView fx:id="artPhoto" fitHeight="396.0" fitWidth="545.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="deleteButton" layoutX="380.0" layoutY="440.0" mnemonicParsing="false" text="Delete" />
-      <Button fx:id="addPhotoButton" layoutX="171.0" layoutY="440.0" mnemonicParsing="false" text="Add" />
+      <Button fx:id="previousButton" layoutX="438.0" layoutY="440.0" mnemonicParsing="false" text="&lt; Previous" disable="true" onAction="#handlePrevious"/>
+      <Button fx:id="nextButton" layoutX="520.0" layoutY="440.0" mnemonicParsing="false" text="Next &gt;" disable="true" onAction="#handleNext"/>
+      <ImageView fx:id="artPhoto" fitHeight="367.0" fitWidth="545.0" layoutX="28.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true"/>
+      <Button fx:id="deleteButton" layoutX="380.0" layoutY="440.0" mnemonicParsing="false" text="Delete" defaultButton="false" onAction="#handleDelete"/>
+      <Button fx:id="addPhotoButton" layoutX="171.0" layoutY="440.0" mnemonicParsing="false" text="Add" onAction="#handleAddPhoto"/>
       <TextField fx:id="imagePathField" layoutX="14.0" layoutY="440.0" promptText="Image path..." />
-      <Button fx:id="cancelButton" layoutX="323.0" layoutY="440.0" mnemonicParsing="false" text="Cancel" onAction="#handleCancel"/>
+      <Button fx:id="cancelButton" layoutX="323.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+      <Label fx:id="artTitle" layoutX="270.0" layoutY="14.0" text="Label">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
    </children>
    <opaqueInsets>
       <Insets />

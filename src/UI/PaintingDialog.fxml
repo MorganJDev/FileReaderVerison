@@ -69,7 +69,7 @@
       </GridPane>
       <ButtonBar layoutX="388.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button mnemonicParsing="false"  text="Post Auction" />
+          <Button mnemonicParsing="false"  text="Post Auction" onAction="#handlePostAuction"/>
             <Button mnemonicParsing="false"  text="Cancel" onAction="#handleCancel"/>
         </buttons>
       </ButtonBar>

@@ -21,6 +21,7 @@ public class User
     private String postcode;
     private LocalDateTime lastLogin;
     private ArrayList<User> favouriteUsers;
+    private String profileImage;
 
     /**
      * Creates new instance of user
@@ -48,6 +49,17 @@ public class User
         this.lastLogin = time;
         favouriteUsers = new ArrayList<>();
         this.username = username;
+        profileImage = "";
+    }
+
+    public void setProfileImage(String profileImage)
+    {
+        this.profileImage = profileImage;
+    }
+
+    public String getProfileImage()
+    {
+        return profileImage;
     }
 
     // Username

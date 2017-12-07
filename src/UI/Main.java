@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author Morgan Jones 904410
+ * @version 1.0//
  */
 
 public class Main extends Application
@@ -21,6 +22,8 @@ public class Main extends Application
     public static Stage popup;
     public static UserManager admin;
     public static Auctioneer auctioneer;
+    public static Artwork currentView;
+    public static boolean isReloaded;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception
@@ -46,25 +49,12 @@ public class Main extends Application
 
 	public void SetupApplication()
     {
+        isReloaded = false;
         admin = new UserManager();
 	    auctioneer = new Auctioneer();
 
-        /*
-        User newUser = new User("Dan", "Taylor","03748563859","03 Bryn Road","Brynmill",
-                "Swansea", "Swansea", "SA2 0BT", "Dan98", LocalDateTime.now());
-        User newUser2 = new User("Morgan", "Jones","03748563859","03 Bryn Road","Brynmill",
-                "Swansea", "Swansea", "SA2 0BT", "Morg98",LocalDateTime.now());
-
-        Painting newP = new Painting("Frame","Its a frame","Dan98",2012,null,50,50,200);
-
-        admin.addArtworks(newP);
-        admin.registerUser(newUser);
-        admin.registerUser(newUser2);
-        */
-
         admin.populateArray();
         auctioneer.populateArray();
-        //System.out.println(admin.getAllUsers().get(0).getUsername());
     }
 
     public static void closeApplication()

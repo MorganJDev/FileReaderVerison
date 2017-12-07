@@ -19,7 +19,6 @@ public class UserManager
 {
     private User currentUser;
     private ArrayList<User> allUsers;
-    private ArrayList<Artwork> artworks;
 
     /**
      * This creates a new instance of user manager
@@ -28,17 +27,6 @@ public class UserManager
     {
         currentUser = null;
         allUsers = new ArrayList<>();
-        artworks = new ArrayList<>();
-    }
-
-    public void addArtworks(Artwork artwork)
-    {
-        artworks.add(artwork);
-    }
-
-    public ArrayList<Artwork> getArtworks()
-    {
-        return artworks;
     }
 
     public void setCurrentUser(User user)

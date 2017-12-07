@@ -29,10 +29,19 @@ public class FileReader {
         
         User user = new User (forename, surname, username, telephoneNumber, 
             addressLineOne, addressLineTwo, city, county, postcode, lastLoginDate);
+
+		if (lineScanner.hasNext())
+		{
+			String profileImage = lineScanner.next();
+			user.setProfileImage(profileImage);
+			profileImage = "";
+		}
+
         lineScanner.close();
+
         return user;
     }
-    
+    //
     private static AuctionListing newListing(String line, UserManager um) {
         AuctionListing newListing;
     	ArrayList<String> images = new ArrayList<String>();
@@ -45,8 +54,10 @@ public class FileReader {
 		String creator = lineScanner.next();
 		int creationYear = lineScanner.nextInt();
     	if (type.equals("painting")) {
-    		String image = lineScanner.next();
-    		images.add(image);
+			while (!lineScanner.hasNextInt()) {
+				String image = lineScanner.next();
+				images.add(image);
+			}
     		int width = lineScanner.nextInt();
     		int height = lineScanner.nextInt();
     		Painting painting = new Painting(title,desc,creator,creationYear,images,width,height);
@@ -68,20 +79,24 @@ public class FileReader {
     			User seller = u;
     			int maxbids = lineScanner.nextInt();
     	    	int reserve = lineScanner.nextInt();
+				String status = lineScanner.next();
     	    	if (lineScanner.hasNext()) {
     	    		for(User z : um.getAllUsers()) {
     	    			if (u.getUsername() == lineScanner.next()) {
     	    				User winner = z;
-    	    				String status = lineScanner.next();
     	    				int winPrice = lineScanner.nextInt();	
     	    				ArrayList<Bid> bids = newBid(lineScanner, um);
     	    				AuctionListing auction = new AuctionListing(seller, artwork, maxbids, reserve, status, bids, winner, winPrice);
+    	    				for (Bid b : auction.getBids()) {
+    	    					b.setListing(auction);
+							}
     	    				lineScanner.close();
     	    				return auction;
     	    			}
     	    		}
     	    	} else {
     	    		AuctionListing auction = new AuctionListing(seller, artwork, maxbids,reserve);
+    	    		auction.setStatus(status);
     	    		lineScanner.close();
     				return auction;
     	    	}
