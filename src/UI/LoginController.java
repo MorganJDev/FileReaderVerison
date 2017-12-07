@@ -38,8 +38,8 @@ public class LoginController
     @FXML
     public void handleLogin() throws Exception
     {
-        //if(foundUser())
-        //{
+        if(foundUser())
+        {
             //Stage window = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Stage window = new Stage();
 
@@ -50,7 +50,7 @@ public class LoginController
             Main.window.show();
 
             Main.window.setOnCloseRequest(e -> Main.closeApplication());
-        //}
+        }
     }
     
     @FXML
