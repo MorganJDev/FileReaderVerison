@@ -28,7 +28,7 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception
     {
-        SetupApplication();
+        //SetupApplication();
 
         Stage newWindow = primaryStage;
 
