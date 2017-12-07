@@ -1,10 +1,11 @@
+
 package UI;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ColorPicker;
+//import javafx.scene.control.ColorPicker;
 import javafx.stage.Stage;
 import java.awt.Canvas;
 import javafx.scene.paint.Color;
@@ -17,8 +18,8 @@ import java.awt.*;
 
 public class CanvasController
 {
-    ColorPicker cp;
     @FXML javafx.scene.canvas.Canvas canvasPane;
+    @FXML javafx.scene.control.ColorPicker colorPicker;
     private void handleCancel()
     {
         Main.popup.close();
@@ -35,13 +36,13 @@ public class CanvasController
     }
 
     @FXML
-    private void handleDraw()
+    private void handleCircleClick()
     {
-        //drawLine();
+        //drawCircle;
     }
 
     private void drawLine(){
-        cp = new ColorPicker();
+        //colorPicker = new ColorPicker();
 
         GraphicsContext gc = canvasPane.getGraphicsContext2D();
         gc.setStroke(Color.BLACK);
@@ -59,13 +60,13 @@ public class CanvasController
         });
 
 
-        cp.setValue(Color.BLACK);
-        cp.setOnAction(e -> {
-            gc.setStroke(cp.getValue());
+        colorPicker.setValue(Color.BLACK);
+        colorPicker.setOnAction(e -> {
+            gc.setStroke(colorPicker.getValue());
         });
     }
 
-    private void drawReactangle(){
+    private void drawRectangle(){
 
     }
 }
