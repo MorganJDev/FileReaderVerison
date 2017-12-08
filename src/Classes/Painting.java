@@ -17,13 +17,12 @@ public class Painting extends Artwork {
     * @param desc A description of the painting
     * @param creator The name of the paintings creator
     * @param creationYear The year the painting was created
-    * @param photo The main image of the painting
     * @param width The paintings width
     * @param height The paintings height
     */
     public Painting(String title, String desc, String creator, int creationYear,
-                    ArrayList<String> photos, int width, int height) {
-        super(title,desc,creator,creationYear,photos);
+                    ArrayList<String> photos, int width, int height, String type) {
+        super(title,desc,creator,creationYear,photos,type);
         this.width = width;
         this.height = height;
     }

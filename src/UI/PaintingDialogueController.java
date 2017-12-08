@@ -40,7 +40,7 @@ public class PaintingDialogueController
         int maxBid = Integer.parseInt(maximumBidsField.getText());
 
         Painting newPaint = new Painting(title,description,createdBy,creationYear,null,
-                width,height);
+                width,height,"painting");
         AuctionListing newListing = new AuctionListing(Main.admin.getCurrentUser(),newPaint,
                 maxBid,reserve);
         Main.auctioneer.post(newListing);

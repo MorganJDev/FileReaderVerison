@@ -60,7 +60,7 @@ public class FileReader {
 			}
     		int width = lineScanner.nextInt();
     		int height = lineScanner.nextInt();
-    		Painting painting = new Painting(title,desc,creator,creationYear,images,width,height);
+    		Painting painting = new Painting(title,desc,creator,creationYear,images,width,height,type);
     		artwork = painting;
     	} else if (type.equals("sculpture")) {
     		while (!lineScanner.hasNextInt()) {
@@ -71,7 +71,7 @@ public class FileReader {
     		int height = lineScanner.nextInt();
     		int depth = lineScanner.nextInt();
     		String material = lineScanner.next();
-    		Sculpture sculpture = new Sculpture(title,desc,creator,creationYear,images,width,height,depth,material);
+    		Sculpture sculpture = new Sculpture(title,desc,creator,creationYear,images,width,height,depth,material,type);
     		artwork = sculpture;
     	}
     	String sellerName = lineScanner.next();

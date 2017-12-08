@@ -33,7 +33,7 @@ public class SculptureController
         String material = materialField.getText();
 
         Sculpture newSculp = new Sculpture(title,description,createdBy,creationYear,null,
-                width,height,depth,material);
+                width,height,depth,material,"sculpture");
         AuctionListing newListing = new AuctionListing(Main.admin.getCurrentUser(),newSculp,
                 maxBid,reserve);
         Main.auctioneer.post(newListing);
