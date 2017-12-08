@@ -213,6 +213,11 @@ public class AdminMenuController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources)
 	{
+		setupTables();
+	}
+
+	private void setupTables()
+	{
 		// bind the table fields for the Browse Users tab
 		browseUsernameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUsername()));
 		browseForenameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getForename()));
