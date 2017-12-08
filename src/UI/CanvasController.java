@@ -56,6 +56,8 @@ public class CanvasController
         GraphicsContext circle = canvasPane.getGraphicsContext2D();
         //circle.fillOval(20,20,20);
 
+        resetDraw();
+
         canvasPane.setOnMousePressed(e -> {
             circle.fillOval(e.getSceneX() - 197, e.getSceneY() - 77, 25, 25);
 //            circle.setFill(Color.TRANSPARENT);
@@ -67,7 +69,15 @@ public class CanvasController
         });
     }
 
+    private void resetDraw()
+    {
+        canvasPane.setOnMousePressed(null);
+        canvasPane.setOnMouseReleased(null);
+    }
+
     private void drawLine(){
+
+        resetDraw();
 
         GraphicsContext gc = canvasPane.getGraphicsContext2D();
         gc.setStroke(Color.BLACK);
@@ -91,6 +101,9 @@ public class CanvasController
     }
 
     private void drawBrush() {
+
+        resetDraw();
+
         GraphicsContext gcontext = canvasPane.getGraphicsContext2D();
         gcontext.setStroke(Color.BLACK);
         gcontext.setLineWidth(1);
@@ -112,6 +125,9 @@ public class CanvasController
         });
     }
     private void drawRectangle(){
+
+        resetDraw();
+        
         GraphicsContext rect = canvasPane.getGraphicsContext2D();
         canvasPane.setOnMousePressed(e -> {
             rect.fillRect(e.getSceneX() - 197, e.getSceneY() - 77, 30, 20);
