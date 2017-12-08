@@ -1,12 +1,15 @@
 package UI;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import Classes.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -17,7 +20,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class AdminMenuController {
+public class AdminMenuController implements Initializable {
 	
 	@FXML
 	private TableView<User> browseUserTable;
@@ -65,28 +68,6 @@ public class AdminMenuController {
 	
 	private User selectedUser;
 	private AuctionListing selectedAuctionListing;
-	
-	@FXML
-	private void initialize() {
-		// bind the table fields for the Browse Users tab
-		browseUsernameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUsername()));
-	    browseForenameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getForename()));
-	    browseSurnameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurname()));
-	    
-	    // bind the table fields for the Browse Users tab
-	    browseTitleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getArtworkTitle()));
-	    browseSellerColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSellerUsername()));
-	    
-	    // Clear details when nothing is selected on tables
-	    showBrowseUserDetails(null);
-	    showBrowseArtworkDetails(null);
-	      
-	    // Listen for selection changes and show details when changed.
-	    browseUserTable.getSelectionModel().selectedItemProperty()
-	    	.addListener((observable, oldValue, newValue) -> showBrowseUserDetails(newValue));
-	    browseArtworkTable.getSelectionModel().selectedItemProperty()
-	    	.addListener((observable, oldValue, newValue) -> showBrowseArtworkDetails(newValue));
-	}
 	
 	@FXML
 	public void init() {
@@ -219,5 +200,36 @@ public class AdminMenuController {
         		allAuctions.remove(i);
         	}
         }
-    }  
+    }
+
+	/**
+	 * Called to initialize a controller after its root element has been
+	 * completely processed.
+	 *
+	 * @param location  The location used to resolve relative paths for the root object, or
+	 *                  {@code null} if the location is not known.
+	 * @param resources The resources used to localize the root object, or {@code null} if
+	 */
+	@Override
+	public void initialize(URL location, ResourceBundle resources)
+	{
+		// bind the table fields for the Browse Users tab
+		browseUsernameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUsername()));
+		browseForenameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getForename()));
+		browseSurnameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurname()));
+
+		// bind the table fields for the Browse Users tab
+		browseTitleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getArtworkTitle()));
+		browseSellerColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSellerUsername()));
+
+		// Clear details when nothing is selected on tables
+		showBrowseUserDetails(null);
+		showBrowseArtworkDetails(null);
+
+		// Listen for selection changes and show details when changed.
+		browseUserTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showBrowseUserDetails(newValue));
+		browseArtworkTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showBrowseArtworkDetails(newValue));
+	}
 }

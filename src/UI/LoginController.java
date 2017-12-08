@@ -56,19 +56,16 @@ public class LoginController
     @FXML
     public void handleAdminLogin() throws Exception
     {
-        if(foundUser())
-        {
-            //Stage window = (Stage) ((Node)e.getSource()).getScene().getWindow();
-            Stage window = new Stage();
+        //Stage window = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        Stage window = new Stage();
 
-            Parent current = FXMLLoader.load(getClass().getResource("AdminMenu.fxml"));
+        Parent current = FXMLLoader.load(getClass().getResource("AdminMenu.fxml"));
 
-            window.setScene(new Scene(current));
-            window.show();
+        window.setScene(new Scene(current));
+        window.show();
 
-            Main.window.close();
-            Main.window = window;
-        }
+        Main.window.close();
+        Main.window = window;
     }
 
     public Boolean foundUser()
