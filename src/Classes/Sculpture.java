@@ -24,8 +24,8 @@ public class Sculpture extends Artwork {
     * @param material The main material of the sculpture
     */
     public Sculpture (String title, String desc, String creator, int creationYear, ArrayList<String> photos,
-                      int width, int height, int depth, String material, String type) {
-        super(title,desc,creator,creationYear,photos, type);
+                      int width, int height, int depth, String material) {
+        super(title,desc,creator,creationYear,photos);
         this.width = width;
         this.height = height;
         this.depth = depth;

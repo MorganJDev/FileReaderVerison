@@ -15,7 +15,6 @@ public class Artwork {
     private ArrayList<String> photos;
     private double reserve;
     private String status;
-    private String type;
 
     /**
     * Creates a new artwork with already specified information
@@ -24,22 +23,13 @@ public class Artwork {
     * @param creator The name of the artworks creator
     * @param creationYear The year the artwork was created
     */
-    public Artwork(String title, String desc, String creator, int creationYear, ArrayList<String> photos, String type) {
+    public Artwork(String title, String desc, String creator, int creationYear, ArrayList<String> photos) {
         this.title = title;
         this.description = desc;
         this.creatorName = creator;
         this.artCreationYear = creationYear;
         this.photos = photos;
         this.status = "Auction";
-        this.type = type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public void setReserve(double reserve) {
