@@ -3,6 +3,9 @@ package UI;
 import Classes.AuctionListing;
 import Classes.Painting;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 /**
  * This controls the GUI of adding a new painting.
@@ -28,8 +31,16 @@ public class PaintingDialogueController
      * This closes the form
      */
     @FXML
-    private void handleCancel()
+    private void handleCancel() throws Exception
     {
+        Parent current = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+
+        Main.window.close();
+        Main.window.setScene(new Scene(current));
+        Main.window.show();
+
+        Main.window.setOnCloseRequest(e -> Main.closeApplication());
+
         Main.popup.close();
     }
 
@@ -38,7 +49,7 @@ public class PaintingDialogueController
      * and then posts it for auction
      */
     @FXML
-    private void handlePostAuction()
+    private void handlePostAuction() throws Exception
     {
         String title = titleField.getText();
         String description = descriptionField.getText();
@@ -52,7 +63,7 @@ public class PaintingDialogueController
         int maxBid = Integer.parseInt(maximumBidsField.getText());
 
         Painting newPaint = new Painting(title,description,createdBy,creationYear,null,
-                width,height,"painting");
+                width,height);
         AuctionListing newListing = new AuctionListing(Main.admin.getCurrentUser(),newPaint,
                 maxBid,reserve);
         Main.auctioneer.post(newListing);

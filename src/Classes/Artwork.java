@@ -14,7 +14,6 @@ public class Artwork {
     private int artCreationYear;
     private ArrayList<String> photos;
     private double reserve;
-    private String status;
 
     /**
     * Creates a new artwork with already specified information
@@ -29,7 +28,6 @@ public class Artwork {
         this.creatorName = creator;
         this.artCreationYear = creationYear;
         this.photos = photos;
-        this.status = "Auction";
     }
 
     public void setReserve(double reserve) {
