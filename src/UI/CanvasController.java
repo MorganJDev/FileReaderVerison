@@ -2,7 +2,6 @@
 package UI;
 
 import Classes.User;
-import com.sun.corba.se.spi.ior.Writeable;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
