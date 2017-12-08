@@ -133,7 +133,7 @@ public class MainMenuController implements Initializable
                 cellData -> new SimpleStringProperty(cellData.getValue().getStatus().toString()));
 
         // bind the table fields for the Completed Artwork tab
-        doneTitleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSellerUsername()));
+        doneTitleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getArtworkTitle()));
         doneBuyerColumn
                 .setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getWinningBidder().getUsername()));
         doneAmountColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().winningPrice()).asObject());
@@ -152,6 +152,7 @@ public class MainMenuController implements Initializable
 
     private void showMyArtworkDetails(AuctionListing auctionListing) {
         selectedAuctionListing = auctionListing;
+        Main.selectedAuction = selectedAuctionListing;
 
         if (auctionListing != null) {
             Artwork artwork = auctionListing.getArtwork();
@@ -189,6 +190,7 @@ public class MainMenuController implements Initializable
 
     private void showBrowseArtworkDetails(AuctionListing auctionListing) {
         selectedAuctionListing = auctionListing;
+        Main.selectedAuction = selectedAuctionListing;
 
         if (auctionListing != null) {
 
@@ -313,39 +315,47 @@ public class MainMenuController implements Initializable
     }
 
     @FXML
-    private SellHistoryDialogueController handleViewMyArtworkBids() throws Exception
+    private void handleViewMyArtworkBids() throws Exception
     {
-        Stage window = new Stage();
+        if (Main.selectedAuction != null)
+        {
+            Stage window = new Stage();
+            Main.selectedAuction = selectedAuctionListing;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("SellHistoryDialogue.fxml"));
-        Parent current = loader.load();
-        SellHistoryDialogueController artowrkBidsloader = loader.getController();
-        artowrkBidsloader.initSelectedAuction(selectedAuctionListing);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SellHistoryDialogue.fxml"));
+            Parent current = loader.load();
+            //SellHistoryDialogueController artowrkBidsloader = loader.getController();
+            //artowrkBidsloader.initSelectedAuction(selectedAuctionListing);
 
-        window.setScene(new Scene(current));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.show();
+            window.setScene(new Scene(current));
+            window.initModality(Modality.APPLICATION_MODAL);
+            window.show();
 
-        Main.popup = window;
-        return artowrkBidsloader;
+            Main.popup = window;
+            //return artowrkBidsloader;
+        }
     }
 
     @FXML
-    private ViewSellerDialogueController handleViewSeller() throws Exception
+    private void handleViewSeller() throws Exception
     {
-        Stage window = new Stage();
+        if (Main.selectedAuction != null)
+        {
+            Stage window = new Stage();
+            Main.selectedAuction = selectedAuctionListing;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewSellerDialog.fxml"));
-        Parent current = loader.load();
-        ViewSellerDialogueController sellerLoader = loader.getController();
-        sellerLoader.initSelectedAuction(selectedAuctionListing);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewSellerDialog.fxml"));
+            Parent current = loader.load();
+            //ViewSellerDialogueController sellerLoader = loader.getController();
+            //sellerLoader.initSelectedAuction(selectedAuctionListing);
 
-        window.setScene(new Scene(current));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.show();
+            window.setScene(new Scene(current));
+            window.initModality(Modality.APPLICATION_MODAL);
+            window.show();
 
-        Main.popup = window;
-        return sellerLoader;
+            Main.popup = window;
+            //return sellerLoader;
+        }
     }
 
     @FXML
@@ -391,43 +401,55 @@ public class MainMenuController implements Initializable
     @FXML
     private void handleAddPhotos() throws Exception
     {
-        Stage window = new Stage();
+        if (Main.selectedAuction != null)
+        {
+            Stage window = new Stage();
+            Main.selectedAuction = selectedAuctionListing;
 
-        Parent current = FXMLLoader.load(getClass().getResource("AddPhotosDialogue.fxml"));
+            Parent current = FXMLLoader.load(getClass().getResource("AddPhotosDialogue.fxml"));
 
-        window.setScene(new Scene(current));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.show();
+            window.setScene(new Scene(current));
+            window.initModality(Modality.APPLICATION_MODAL);
+            window.show();
 
-        Main.popup = window;
+            Main.popup = window;
+        }
     }
 
     @FXML
     private void handleBid() throws Exception
     {
-        Stage window = new Stage();
+        if (Main.selectedAuction != null)
+        {
+            Stage window = new Stage();
+            Main.selectedAuction = selectedAuctionListing;
 
-        Parent current = FXMLLoader.load(getClass().getResource("BidDialog.fxml"));
+            Parent current = FXMLLoader.load(getClass().getResource("BidDialog.fxml"));
 
-        window.setScene(new Scene(current));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.show();
+            window.setScene(new Scene(current));
+            window.initModality(Modality.APPLICATION_MODAL);
+            window.show();
 
-        Main.popup = window;
+            Main.popup = window;
+        }
     }
 
     @FXML
     private void handleViewPhotos() throws Exception
     {
-        Stage window = new Stage();
+        if (Main.selectedAuction != null)
+        {
+            Stage window = new Stage();
+            Main.selectedAuction = selectedAuctionListing;
 
-        Parent current = FXMLLoader.load(getClass().getResource("PhotosDialogue.fxml"));
+            Parent current = FXMLLoader.load(getClass().getResource("PhotosDialogue.fxml"));
 
-        window.setScene(new Scene(current));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.show();
+            window.setScene(new Scene(current));
+            window.initModality(Modality.APPLICATION_MODAL);
+            window.show();
 
-        Main.popup = window;
+            Main.popup = window;
+        }
     }
 //
     @FXML

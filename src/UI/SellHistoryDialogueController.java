@@ -56,12 +56,6 @@ public class SellHistoryDialogueController implements Initializable {
         bidTable.setItems(bids);
     }
 
-    public void initSelectedAuction(AuctionListing selectedAuction) {
-        this.selectedAuctionListing = selectedAuction;
-        setupTable();
-        populateTable();
-    }
-
     @FXML
     private void handleCancel()
     {
@@ -70,5 +64,8 @@ public class SellHistoryDialogueController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.selectedAuctionListing = Main.selectedAuction;
+        setupTable();
+        populateTable();
     }
 }

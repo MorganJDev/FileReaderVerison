@@ -22,7 +22,7 @@ public class Main extends Application
     public static Stage popup;
     public static UserManager admin;
     public static Auctioneer auctioneer;
-    public static Artwork currentView;
+    public static AuctionListing selectedAuction;
     public static boolean isReloaded;
 
 	@Override
@@ -52,6 +52,7 @@ public class Main extends Application
         isReloaded = false;
         admin = new UserManager();
 	    auctioneer = new Auctioneer();
+        selectedAuction = null;
 
         admin.populateArray();
         auctioneer.populateArray();

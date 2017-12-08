@@ -26,7 +26,6 @@ public class AddPhotosController implements Initializable
     public javafx.scene.control.Button previousButton;
     public javafx.scene.control.Button nextButton;
 
-    private String art;
     private static int picturePosition;
 
     @FXML
@@ -46,13 +45,7 @@ public class AddPhotosController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        //artTitle.setText(Main.currentView.getTitle());
-        // TODO: Set this variable in main when a cell in the table is clicked
-        // TODO: In the same method that displays the artwork details on the right
-
-        // These lines are for testing
-        art = artTitle.getText();
-        art = "Egg";
+        artTitle.setText(Main.selectedAuction.getArtworkTitle());
 
         if(findArtwork().getPhotos() != null)
         {
@@ -117,7 +110,7 @@ public class AddPhotosController implements Initializable
         {
             if (i.getSellerUsername().equals(Main.admin.getCurrentUser().getUsername()))
             {
-                if(i.getArtwork().getTitle().equals(art))
+                if(i.getArtwork().getTitle().equals(Main.selectedAuction.getArtworkTitle()))
                 {
                     return i.getArtwork();
                 }

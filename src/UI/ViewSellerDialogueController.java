@@ -60,11 +60,6 @@ public class ViewSellerDialogueController implements Initializable{
         }
     }
 
-    public void initSelectedAuction(AuctionListing selectedAuction) {
-        this.selectedAuctionListing = selectedAuction;
-        setupScene();
-    }
-
     @FXML
     private void handleCancel()
     {
@@ -73,5 +68,7 @@ public class ViewSellerDialogueController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.selectedAuctionListing = Main.selectedAuction;
+        setupScene();
     }
 }
