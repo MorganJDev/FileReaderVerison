@@ -112,7 +112,7 @@ public class AuctionListing {
 		int availableBids = maxBids;
 
 		for (Bid b : bids) {
-			if (b.getStatus() == "Accepted")
+			if (b.getStatus().equals("Accepted"))
 				availableBids--;
 		}
 		return availableBids;
