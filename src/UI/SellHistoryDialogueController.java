@@ -16,7 +16,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * @author Luke Thomas [student no]
+ * Manages the GUI for viewing the bid history of one of the users artworks,
+ * it lets the user view a table of all the bids placed on their artwork/auction
+ * @author Luke Thomas 905557
  */
 public class SellHistoryDialogueController implements Initializable {
 
@@ -31,6 +33,10 @@ public class SellHistoryDialogueController implements Initializable {
     // The selected auction from main menu
     private AuctionListing selectedAuctionListing;
 
+    /**
+     * Sets the values stored in the table and all of it's columns to the information
+     * stored in each bid placed on the artwork
+     */
     private void setupTable() {
         // bind the table fields for the My Bids tab
         bidderColumn.setCellValueFactory(
@@ -43,6 +49,9 @@ public class SellHistoryDialogueController implements Initializable {
                 cellData -> new SimpleStringProperty(cellData.getValue().getStatus().toString()));
     }
 
+    /**
+     * Populates the table with all of the bids placed on the selected artwork
+     */
     public void populateTable() {
         AuctionListing auctionListing = selectedAuctionListing;
 
@@ -54,12 +63,24 @@ public class SellHistoryDialogueController implements Initializable {
         bidTable.setItems(bids);
     }
 
+    /**
+     * This closes the form upon clicking cancel
+     */
     @FXML
     private void handleCancel()
     {
         Main.popup.close();
     }
 
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed. It also loads a table of bids placed on
+     * the selected artwork
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.selectedAuctionListing = Main.selectedAuction;

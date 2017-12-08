@@ -21,6 +21,8 @@ public class Bid {
 	 * Constructor method
 	 * @param bidder The Classes.User who is placing a bid
 	 * @param amount The price the bidder is placing
+	 * @param status The status of this bid
+	 * @param bidPlaced the date this bid was placed
 	 */
 	public Bid(User bidder, int amount, String status, LocalDateTime bidPlaced) {
 		this.bidder = bidder;
@@ -38,13 +40,15 @@ public class Bid {
 	}
 
 	/**
-	 * @return The listing the bid is placed on
+	 * Get the listing the bid is placed on
+	 * @return the listing
 	 */
 	public AuctionListing getListing() {
 		return auctionListing;
 	}
 
 	/**
+	 * Get the user who placed this bid
 	 * @return The bidder
 	 */
 	public User getBidder() {
@@ -52,6 +56,7 @@ public class Bid {
 	}
 
 	/**
+	 * Get the amount of this bid
 	 * @return The amount
 	 */
 	public int getAmount() {
@@ -59,20 +64,33 @@ public class Bid {
 	}
 
 	/**
-	 * @return The time that the bid was placed (bidPlaced)
+	 * Get the time that the bid was placed
+	 * @return the bid placed date
 	 */
 	public LocalDateTime getBidPlaced() {
 		return bidPlaced;
 	}
-	
+
+	/**
+	 * Returns the status of this bid
+	 * @return bid status
+	 */
 	public String getStatus() {
 		return this.status;
 	}
 
+	/**
+	 * Set the auction listing this bid has been placed on
+	 * @param auctionListing the listing this bid has been placed on
+	 */
 	public void setListing(AuctionListing auctionListing) {
 		this.auctionListing = auctionListing;
 	}
-	
+
+	/**
+	 * Set the status of this bid
+	 * @param newstat bid status
+	 */
 	public void setStatus(String newstat) {
 		this.status = newstat;
 	}

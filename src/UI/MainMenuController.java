@@ -26,7 +26,7 @@ import static UI.Main.closeApplication;
  * all the user and auction info in their respective tabs
  *
  * @author Morgan Jones 904410
- * @author Luke Thomas [student no]
+ * @author Luke Thomas 905557
  */
 
 public class MainMenuController implements Initializable
@@ -46,7 +46,7 @@ public class MainMenuController implements Initializable
     @FXML private TableColumn<AuctionListing, String> myListingStatus;
     @FXML private TableColumn<AuctionListing, String> myRemainingBids;
 
-    // Labels
+    // Labels for my artwork
     @FXML private Label artDescriptionLabel;
     @FXML private Label yearCreatedLabel;
     @FXML private Label createdByLabel;
@@ -61,7 +61,7 @@ public class MainMenuController implements Initializable
     @FXML private TableColumn<AuctionListing, String> browseTitleColumn;
     @FXML private TableColumn<AuctionListing, String> browseSellerColumn;
 
-    // Labels
+    // Labels for browse tab
     @FXML private Label artDescriptionLabel2;
     @FXML private Label yearCreatedLabel2;
     @FXML private Label createdByLabel2;
@@ -101,7 +101,9 @@ public class MainMenuController implements Initializable
     private AuctionListing selectedAuctionListing;
 
     /**
-     *
+     * Method used to set the data stored in each table and each table column,
+     * also sets the value of the additional information provided for a piece of artwork on
+     * my artworks or browse to be equal to the currently selected artwork/auction
      */
     @FXML
     private void setupTable()
@@ -151,8 +153,9 @@ public class MainMenuController implements Initializable
     }
 
     /**
-     *
-     * @param auctionListing
+     * Method used to set the information displayed by the labels on the my artwork tab
+     * to the information of the currently selected artwor/auction
+     * @param auctionListing the currently selected artwork/auction
      */
     private void showMyArtworkDetails(AuctionListing auctionListing) {
         selectedAuctionListing = auctionListing;
@@ -193,8 +196,9 @@ public class MainMenuController implements Initializable
     }
 
     /**
-     *
-     * @param auctionListing
+     * Method used to set the information displayed by the labels on the browse artwork tab
+     * to the information of the currently selected artwor/auction
+     * @param auctionListing the currently selected artwork/auction
      */
     private void showBrowseArtworkDetails(AuctionListing auctionListing) {
         selectedAuctionListing = auctionListing;
@@ -519,13 +523,15 @@ public class MainMenuController implements Initializable
     }
 
     /**
-     *
+     * This method is used to populate all the tables in the main menu with information from all auctions stored
+     * on the system
      */
     public void populateTables()
     {
         User user = Main.admin.getCurrentUser();
 
         if (user != null) {
+            //Populates the "My bids" tab table with bids placed by the current user
             ObservableList<Bid> bids = FXCollections.observableArrayList();
             for(AuctionListing al : Main.auctioneer.getAuctionListings()) {
                 for (Bid b : al.getBids()) {
@@ -537,18 +543,22 @@ public class MainMenuController implements Initializable
             bidTable.setItems(bids);
 
             if (Main.auctioneer != null) {
+
+                //Populates the "My artworks" tab table with artworks sold by the current user
                 ObservableList<AuctionListing> myArtworks = FXCollections.observableArrayList();
                 for (AuctionListing al : Main.auctioneer.getMyOpenAuctionListings(user)) {
                     myArtworks.add(al);
                 }
                 myArtworkTable.setItems(myArtworks);
 
+                //Populates the "Browse artworks" tab table with artworks sold by others user
                 ObservableList<AuctionListing> browseArtworks = FXCollections.observableArrayList();
                 for (AuctionListing al : Main.auctioneer.getOtherAuctionListings(user)) {
                     browseArtworks.add(al);
                 }
                 browseArtworkTable.setItems(browseArtworks);
 
+                //Populates the "Closed auctions" tab table with completed auctions put up by the current user
                 ObservableList<AuctionListing>  doneAuctions = FXCollections.observableArrayList();
                 for (AuctionListing al : Main.auctioneer.getMyClosedAuctionListings(user)) {
                     doneAuctions.add(al);
