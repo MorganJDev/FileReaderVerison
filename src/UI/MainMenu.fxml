@@ -209,8 +209,7 @@
 												<Button fx:id="filterButton" mnemonicParsing="false" text="Filter..." />
 											</buttons>
 										</ButtonBar>
-                              <Button fx:id="favouriteButton" layoutX="300.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleFavourite" prefHeight="25.0" prefWidth="123.0" text="Favourite" />
-                              <Button layoutX="167.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleViewSeller" prefHeight="25.0" prefWidth="122.0" text="View seller" />
+                              <Button layoutX="301.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleViewSeller" prefHeight="25.0" prefWidth="122.0" text="View seller" />
 									</children>
 								</AnchorPane>
 							</items>

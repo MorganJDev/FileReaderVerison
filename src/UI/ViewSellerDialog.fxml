@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="295.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ViewSellerDialogueController">
    <children>
-      <ImageView fx:id="sellerImage" fitHeight="150.0" fitWidth="200.0" layoutX="80.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="sellerImage" fitHeight="150.0" fitWidth="200.0" layoutX="83.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="152.0" layoutY="171.0" text="Username:" />
       <Label fx:id="sellerName" layoutX="168.0" layoutY="188.0" text="Label" />
       <Button fx:id="favouriteButton" layoutX="150.0" layoutY="205.0" mnemonicParsing="false" onAction="#handleFavourite" text="Favourite" />

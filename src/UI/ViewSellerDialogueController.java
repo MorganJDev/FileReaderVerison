@@ -47,6 +47,7 @@ public class ViewSellerDialogueController implements Initializable{
                 ArrayList<User> allFavs = Main.admin.getCurrentUser().getFavouriteUsers();
                 if (selectedAuctionListing.getSeller().equals(allFavs.get(i))) {
                     Main.admin.getCurrentUser().getFavouriteUsers().remove(i);
+                    favouriteButton.setText("Favourite");
                     alreadyFavourited = true;
                 } else {
                     i++;
@@ -54,6 +55,7 @@ public class ViewSellerDialogueController implements Initializable{
             }
             if (!alreadyFavourited) {
                 Main.admin.getCurrentUser().addFavouriteUser(selectedAuctionListing.getSeller());
+                favouriteButton.setText("Unfavourite");
             }
         }
     }

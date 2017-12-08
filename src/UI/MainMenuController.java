@@ -48,8 +48,6 @@ public class MainMenuController implements Initializable
     private TableColumn<AuctionListing, String> browseTitleColumn;
     @FXML
     private TableColumn<AuctionListing, String> browseSellerColumn;
-    @FXML
-    private Button favouriteButton;
 
     @FXML
     private Label artDescriptionLabel;
@@ -193,13 +191,7 @@ public class MainMenuController implements Initializable
         selectedAuctionListing = auctionListing;
 
         if (auctionListing != null) {
-            favouriteButton.setText("Favourite");
-            String seller = auctionListing.getSellerUsername();
-            for (User fav : Main.admin.getCurrentUser().getFavouriteUsers()) {
-                if (seller.equals(fav.getUsername())) {
-                    favouriteButton.setText("Unfavourite");
-                }
-            }
+
             Artwork artwork = auctionListing.getArtwork();
 
             artDescriptionLabel2.setText(artwork.getDescription());
@@ -354,27 +346,6 @@ public class MainMenuController implements Initializable
 
         Main.popup = window;
         return sellerLoader;
-    }
-
-    @FXML
-    private void handleFavourite() throws Exception
-    {
-        boolean alreadyFavourited = false;
-        int i = 0;
-        if (selectedAuctionListing != null) {
-            while(!Main.admin.getCurrentUser().getFavouriteUsers().isEmpty()) {
-                ArrayList<User> allFavs = Main.admin.getCurrentUser().getFavouriteUsers();
-                if (selectedAuctionListing.getSeller().equals(allFavs.get(i))) {
-                    Main.admin.getCurrentUser().getFavouriteUsers().remove(i);
-                    alreadyFavourited = true;
-                } else {
-                    i++;
-                }
-            }
-            if (!alreadyFavourited) {
-                Main.admin.getCurrentUser().addFavouriteUser(selectedAuctionListing.getSeller());
-            }
-        }
     }
 
     @FXML
