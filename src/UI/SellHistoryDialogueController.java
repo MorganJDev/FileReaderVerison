@@ -2,7 +2,6 @@ package UI;
 
 import Classes.AuctionListing;
 import Classes.Bid;
-import Classes.User;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -21,19 +20,15 @@ import java.util.ResourceBundle;
  */
 public class SellHistoryDialogueController implements Initializable {
 
-    @FXML
-    private TableView<Bid> bidTable;
-    @FXML
-    private TableColumn<Bid, String> bidderColumn;
-    @FXML
-    private TableColumn<Bid, String> bidDateColumn;
-    @FXML
-    private TableColumn<Bid, Integer> bidAmountColumn;
-    @FXML
-    private TableColumn<Bid, String> bidStatusColumn;
-    @FXML
-    private Label artworkName;
+    // References to GUI
+    @FXML private TableView<Bid> bidTable;
+    @FXML private TableColumn<Bid, String> bidderColumn;
+    @FXML private TableColumn<Bid, String> bidDateColumn;
+    @FXML private TableColumn<Bid, Integer> bidAmountColumn;
+    @FXML private TableColumn<Bid, String> bidStatusColumn;
+    @FXML private Label artworkName;
 
+    // The selected auction from main menu
     private AuctionListing selectedAuctionListing;
 
     private void setupTable() {

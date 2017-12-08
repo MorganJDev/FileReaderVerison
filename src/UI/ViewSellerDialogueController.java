@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.control.Button;
-import javax.swing.text.html.ImageView;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -17,13 +16,12 @@ import java.util.ResourceBundle;
  */
 public class ViewSellerDialogueController implements Initializable{
 
-    @FXML
-    private javafx.scene.image.ImageView sellerImage;
-    @FXML
-    private Label sellerName;
-    @FXML
-    private Button favouriteButton;
+    // References to GUI
+    @FXML private javafx.scene.image.ImageView sellerImage;
+    @FXML private Label sellerName;
+    @FXML private Button favouriteButton;
 
+    // Selected auction from main menu
     private AuctionListing selectedAuctionListing;
 
     private void setupScene() {
