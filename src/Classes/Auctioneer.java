@@ -16,7 +16,7 @@ public class Auctioneer {
 		ArrayList<AuctionListing> results = new ArrayList<AuctionListing>();
 
 		for (AuctionListing listing : auctionListings) {
-			if ((listing.getSellerUsername() == user.getUsername()) && (listing.getStatus() != "Closed"))
+			if ((listing.getSellerUsername().equals(user.getUsername())) && (!(listing.getStatus().equals("Closed"))))
 				results.add(listing);
 		}
 
@@ -27,7 +27,7 @@ public class Auctioneer {
 		ArrayList<AuctionListing> results = new ArrayList<AuctionListing>();
 
 		for (AuctionListing listing : auctionListings) {
-			if ((listing.getSellerUsername() == user.getUsername()) && (listing.getStatus() == "Closed"))
+			if ((listing.getSellerUsername().equals(user.getUsername())) && (listing.getStatus().equals("Closed")))
 				results.add(listing);
 		}
 
@@ -38,7 +38,7 @@ public class Auctioneer {
 		ArrayList<AuctionListing> results = new ArrayList<AuctionListing>();
 
 		for (AuctionListing listing : auctionListings) {
-			if ((listing.getSellerUsername() != user.getUsername()) && (listing.getStatus() == "Active"))
+			if (!(listing.getSellerUsername().equals(user.getUsername())) && (listing.getStatus().equals("Active")))
 				results.add(listing);
 		}
 

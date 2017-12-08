@@ -74,31 +74,35 @@ public class FileReader {
     		Sculpture sculpture = new Sculpture(title,desc,creator,creationYear,images,width,height,depth,material);
     		artwork = sculpture;
     	}
+    	String sellerName = lineScanner.next();
     	for(User u : um.getAllUsers()) {
-    		if (u.getUsername().equals(lineScanner.next())) {
+    		if (u.getUsername().equals(sellerName)) {
     			User seller = u;
     			int maxbids = lineScanner.nextInt();
     	    	int reserve = lineScanner.nextInt();
 				String status = lineScanner.next();
-    	    	if (lineScanner.hasNext()) {
-    	    		for(User z : um.getAllUsers()) {
-    	    			if (u.getUsername() == lineScanner.next()) {
-    	    				User winner = z;
-    	    				int winPrice = lineScanner.nextInt();	
-    	    				ArrayList<Bid> bids = newBid(lineScanner, um);
+				String winnerName = lineScanner.next();
+				for(User z : um.getAllUsers()) {
+					if (z.getUsername().equals(winnerName)) {
+						User winner = z;
+						int winPrice = lineScanner.nextInt();
+						if (lineScanner.hasNext()) {
+							String bidString = lineScanner.next();
+							Scanner allBids = new Scanner(bidString);
+    	    				ArrayList<Bid> bids = newBid(allBids, um);
     	    				AuctionListing auction = new AuctionListing(seller, artwork, maxbids, reserve, status, bids, winner, winPrice);
     	    				for (Bid b : auction.getBids()) {
     	    					b.setListing(auction);
 							}
     	    				lineScanner.close();
     	    				return auction;
-    	    			}
+    	    			} else {
+							AuctionListing auction = new AuctionListing(seller, artwork, maxbids,reserve);
+							auction.setStatus(status);
+							lineScanner.close();
+							return auction;
+						}
     	    		}
-    	    	} else {
-    	    		AuctionListing auction = new AuctionListing(seller, artwork, maxbids,reserve);
-    	    		auction.setStatus(status);
-    	    		lineScanner.close();
-    				return auction;
     	    	}
     		}
     	}
@@ -110,8 +114,9 @@ public class FileReader {
     	lineScanner.useDelimiter(";");
 		ArrayList<Bid> bidlist = new ArrayList<Bid>();
 		while(lineScanner.hasNext()) {
+			String bidderName = lineScanner.next();
 			for(User u : um.getAllUsers()) {
-	    		if (u.getUsername() == lineScanner.next()) {
+	    		if (u.getUsername().equals(bidderName)) {
 	    			User bidder = u;
 	    			int amount = lineScanner.nextInt();
 	    			String status = lineScanner.next();
