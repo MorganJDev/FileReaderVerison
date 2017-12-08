@@ -3,6 +3,9 @@ package UI;
 import Classes.AuctionListing;
 import Classes.Sculpture;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 /**
  * This manages the GUI for registering a new sculpture
@@ -29,7 +32,7 @@ public class SculptureController
      * posts it on auction to the system
      */
     @FXML
-    private void handleOk()
+    private void handleOk() throws Exception
     {
         String title = titleField.getText();
         String description = descriptionField.getText();
@@ -45,7 +48,7 @@ public class SculptureController
         int maxBid = Integer.parseInt(maximumBidsField.getText());
 
         Sculpture newSculp = new Sculpture(title,description,createdBy,creationYear,null,
-                width,height,depth,material,"sculpture");
+                width,height,depth,material);
         AuctionListing newListing = new AuctionListing(Main.admin.getCurrentUser(),newSculp,
                 maxBid,reserve);
 
@@ -59,8 +62,16 @@ public class SculptureController
      * This closes the form
      */
     @FXML
-    private void handleCancel()
+    private void handleCancel() throws Exception
     {
+        Parent current = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+
+        Main.window.close();
+        Main.window.setScene(new Scene(current));
+        Main.window.show();
+
+        Main.window.setOnCloseRequest(e -> Main.closeApplication());
+
         Main.popup.close();
     }
 

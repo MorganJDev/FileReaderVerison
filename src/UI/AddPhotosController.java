@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -132,9 +133,22 @@ public class AddPhotosController implements Initializable
         }
         else
         {
-            // If it is a painting then adding a photo replaces the current one
+            if (Main.selectedAuction.getArtwork().getPhotos() != null)
+            {
+                if (Main.selectedAuction.getArtwork().getPhotos().size() != 0)
+                {
+                    // If it is a painting then adding a photo replaces the current one
+                    findArtwork().getPhotos().remove(0);
+                }
+            }
+            else
+            {
+                ArrayList<String> newList = new ArrayList<>();
+                Main.selectedAuction.getArtwork().setPhotos(newList);
+            }
+
             findArtwork().getPhotos().add(filepath);
-            findArtwork().getPhotos().remove(0);
+            artPhoto.setImage(new Image(filepath));
         }
     }
 
