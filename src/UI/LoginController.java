@@ -1,27 +1,28 @@
 package UI;
-import Classes.*;
-import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
 
 /**
+ * This method controls the login screen.
+ * It navigates to registering a user or the main
+ * menu.
+ *
  * @author Morgan Jones 904410
+ * @version 1.0
  */
 
 public class LoginController
 {
+    // References to GUI
     public javafx.scene.control.TextField usernameBox;
 
+    /**
+     * Loads the register menu and closes current menu
+     * @throws Exception If file is not found
+     */
     public void handleRegister() throws Exception
     {
         Stage window = new Stage();
@@ -35,14 +36,15 @@ public class LoginController
         Main.window = window;
     }
 
+    /**
+     * Loads the main menu if the username if found
+     * @throws Exception If file is not found
+     */
     @FXML
     public void handleLogin() throws Exception
     {
         if(foundUser())
         {
-            //Stage window = (Stage) ((Node)e.getSource()).getScene().getWindow();
-            Stage window = new Stage();
-
             Parent current = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
 
             Main.window.close();
@@ -52,11 +54,14 @@ public class LoginController
             Main.window.setOnCloseRequest(e -> Main.closeApplication());
         }
     }
-    
+
+    /**
+     * Loads the admin menu and closes login
+     * @throws Exception If file is not found
+     */
     @FXML
     public void handleAdminLogin() throws Exception
     {
-        //Stage window = (Stage) ((Node)e.getSource()).getScene().getWindow();
         Stage window = new Stage();
 
         Parent current = FXMLLoader.load(getClass().getResource("AdminMenu.fxml"));
@@ -68,6 +73,10 @@ public class LoginController
         Main.window = window;
     }
 
+    /**
+     * Searches the static list of all users for a matching username to the input
+     * @return True/False if user is found
+     */
     public Boolean foundUser()
     {
         Boolean found = false;
@@ -77,6 +86,7 @@ public class LoginController
         {
             if (Main.admin.getAllUsers().get(i).getUsername().equals(input))
             {
+                // Sets the Main static variable for current user
                 Main.admin.setCurrentUser(Main.admin.getAllUsers().get(i));
                 found = true;
             }

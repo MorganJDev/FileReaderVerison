@@ -16,90 +16,93 @@ import javafx.scene.image.Image;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import static UI.Main.closeApplication;
 
 /**
+ * This class manages the Main Menu window.
+ * It controls navigation to all other menus and displays
+ * all the user and auction info in their respective tabs
+ *
  * @author Morgan Jones 904410
+ * @author Luke Thomas [student no]
  */
 
 public class MainMenuController implements Initializable
 {
-    @FXML
-    private TableView<AuctionListing> myArtworkTable;
-    @FXML
-    private TableColumn<AuctionListing, String> myTitleColumn;
-    @FXML
-    private TableColumn<AuctionListing, Integer> myReserveColumn;
-    @FXML
-    private TableColumn<AuctionListing, String> myListingStatus;
-    @FXML
-    private TableColumn<AuctionListing, String> myRemainingBids;
+    // References to GUI
 
-    @FXML
-    private TableView<AuctionListing> browseArtworkTable;
-    @FXML
-    private TableColumn<AuctionListing, String> browseTitleColumn;
-    @FXML
-    private TableColumn<AuctionListing, String> browseSellerColumn;
+    // Tab Bar
+    public javafx.scene.control.Tab profileTab;
+    public javafx.scene.control.TabPane tabMenu;
+    public javafx.scene.control.Tab browseTab;
 
-    @FXML
-    private Label artDescriptionLabel;
-    @FXML
-    private Label yearCreatedLabel;
-    @FXML
-    private Label createdByLabel;
-    @FXML
-    private Label heightLabel;
-    @FXML
-    private Label widthLabel;
-    @FXML
-    private Label depthLabel;
-    @FXML
-    private Label materialLabel;
+    // My Artwork Tab
+    // Table
+    @FXML private TableView<AuctionListing> myArtworkTable;
+    @FXML private TableColumn<AuctionListing, String> myTitleColumn;
+    @FXML private TableColumn<AuctionListing, Integer> myReserveColumn;
+    @FXML private TableColumn<AuctionListing, String> myListingStatus;
+    @FXML private TableColumn<AuctionListing, String> myRemainingBids;
 
-    @FXML
-    private Label artDescriptionLabel2;
-    @FXML
-    private Label yearCreatedLabel2;
-    @FXML
-    private Label createdByLabel2;
-    @FXML
-    private Label heightLabel2;
-    @FXML
-    private Label widthLabel2;
-    @FXML
-    private Label depthLabel2;
-    @FXML
-    private Label materialLabel2;
+    // Labels
+    @FXML private Label artDescriptionLabel;
+    @FXML private Label yearCreatedLabel;
+    @FXML private Label createdByLabel;
+    @FXML private Label heightLabel;
+    @FXML private Label widthLabel;
+    @FXML private Label depthLabel;
+    @FXML private Label materialLabel;
 
-    @FXML
-    private TableView<Bid> bidTable;
-    @FXML
-    private TableColumn<Bid, String> bidDateColumn;
-    @FXML
-    private TableColumn<Bid, String> bidTitleColumn;
-    @FXML
-    private TableColumn<Bid, String> bidSellerColumn;
-    @FXML
-    private TableColumn<Bid, Integer> bidAmountColumn;
-    @FXML
-    private TableColumn<Bid, String> bidStatusColumn;
+    // Browse tab
+    // Table
+    @FXML private TableView<AuctionListing> browseArtworkTable;
+    @FXML private TableColumn<AuctionListing, String> browseTitleColumn;
+    @FXML private TableColumn<AuctionListing, String> browseSellerColumn;
 
-    @FXML
-    private TableView<AuctionListing> doneTable;
-    @FXML
-    private TableColumn<AuctionListing, String> doneTitleColumn;
-    @FXML
-    private TableColumn<AuctionListing, String> doneBuyerColumn;
-    @FXML
-    private TableColumn<AuctionListing, Integer> doneAmountColumn;
+    // Labels
+    @FXML private Label artDescriptionLabel2;
+    @FXML private Label yearCreatedLabel2;
+    @FXML private Label createdByLabel2;
+    @FXML private Label heightLabel2;
+    @FXML private Label widthLabel2;
+    @FXML private Label depthLabel2;
+    @FXML private Label materialLabel2;
 
+    // My Bids Tab
+    @FXML private TableView<Bid> bidTable;
+    @FXML private TableColumn<Bid, String> bidDateColumn;
+    @FXML private TableColumn<Bid, String> bidTitleColumn;
+    @FXML private TableColumn<Bid, String> bidSellerColumn;
+    @FXML private TableColumn<Bid, Integer> bidAmountColumn;
+    @FXML private TableColumn<Bid, String> bidStatusColumn;
+
+    // Completed Auctions tab
+    @FXML private TableView<AuctionListing> doneTable;
+    @FXML private TableColumn<AuctionListing, String> doneTitleColumn;
+    @FXML private TableColumn<AuctionListing, String> doneBuyerColumn;
+    @FXML private TableColumn<AuctionListing, Integer> doneAmountColumn;
+
+    // Profile tab
+    public javafx.scene.control.TextField usernameField;
+    public javafx.scene.control.TextField firstNameField;
+    public javafx.scene.control.TextField lastNameField;
+    public javafx.scene.control.TextField telNoField;
+    public javafx.scene.control.TextField addOneField;
+    public javafx.scene.control.TextField addTwoField;
+    public javafx.scene.control.TextField cityField;
+    public javafx.scene.control.TextField countyField;
+    public javafx.scene.control.TextField postCodeField;
+    public javafx.scene.control.Button editDetailsButton;
+    public javafx.scene.image.ImageView profileImageView;
+
+    // The selected artwork
     private AuctionListing selectedAuctionListing;
 
+    /**
+     *
+     */
     @FXML
     private void setupTable()
     {
@@ -147,6 +150,10 @@ public class MainMenuController implements Initializable
 
     }
 
+    /**
+     *
+     * @param auctionListing
+     */
     private void showMyArtworkDetails(AuctionListing auctionListing) {
         selectedAuctionListing = auctionListing;
         Main.selectedAuction = selectedAuctionListing;
@@ -185,6 +192,10 @@ public class MainMenuController implements Initializable
         }
     }
 
+    /**
+     *
+     * @param auctionListing
+     */
     private void showBrowseArtworkDetails(AuctionListing auctionListing) {
         selectedAuctionListing = auctionListing;
         Main.selectedAuction = selectedAuctionListing;
@@ -224,27 +235,15 @@ public class MainMenuController implements Initializable
         }
     }
 
-    // Profile tab
-    public javafx.scene.control.TextField usernameField;
-    public javafx.scene.control.TextField firstNameField;
-    public javafx.scene.control.TextField lastNameField;
-    public javafx.scene.control.TextField telNoField;
-    public javafx.scene.control.TextField addOneField;
-    public javafx.scene.control.TextField addTwoField;
-    public javafx.scene.control.TextField cityField;
-    public javafx.scene.control.TextField countyField;
-    public javafx.scene.control.TextField postCodeField;
-    public javafx.scene.control.Button editDetailsButton;
-    public javafx.scene.image.ImageView profileImageView;
-
-    public javafx.scene.control.Tab profileTab;
-    public javafx.scene.control.TabPane tabMenu;
-    public javafx.scene.control.Tab browseTab;
-
+    /**
+     * This populates the text boxes on the profile tab with the info about
+     * the currently logged in user
+     */
     @FXML
     private void showProfile()
     {
         User newUser = Main.admin.getCurrentUser();
+
         usernameField.setText(newUser.getUsername());
         firstNameField.setText(newUser.getForename());
         lastNameField.setText(newUser.getSurname());
@@ -258,6 +257,10 @@ public class MainMenuController implements Initializable
         profileImageView.setImage(new Image(Main.admin.getCurrentUser().getProfileImage()));
     }
 
+    /**
+     * This method manages editing and saving user data when edit is clicked.
+     * Ir enables/disables the text boxes for editing and changes the button text
+     */
     @FXML
     private void handleEditProfile()
     {
@@ -291,6 +294,10 @@ public class MainMenuController implements Initializable
         }
     }
 
+    /**
+     * This finds the current user in the static list and updates the fields from
+     * the data in the text boxes
+     */
     private void saveUser()
     {
         for (User i : Main.admin.getAllUsers())
@@ -312,6 +319,10 @@ public class MainMenuController implements Initializable
         }
     }
 
+    /**
+     * This loads the menu to view all bids on a users artwork
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleViewMyArtworkBids() throws Exception
     {
@@ -322,18 +333,19 @@ public class MainMenuController implements Initializable
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SellHistoryDialogue.fxml"));
             Parent current = loader.load();
-            //SellHistoryDialogueController artowrkBidsloader = loader.getController();
-            //artowrkBidsloader.initSelectedAuction(selectedAuctionListing);
 
             window.setScene(new Scene(current));
             window.initModality(Modality.APPLICATION_MODAL);
             window.show();
 
             Main.popup = window;
-            //return artowrkBidsloader;
         }
     }
 
+    /**
+     * This loads the menu to view the seller of an artwork
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleViewSeller() throws Exception
     {
@@ -344,18 +356,19 @@ public class MainMenuController implements Initializable
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewSellerDialog.fxml"));
             Parent current = loader.load();
-            //ViewSellerDialogueController sellerLoader = loader.getController();
-            //sellerLoader.initSelectedAuction(selectedAuctionListing);
 
             window.setScene(new Scene(current));
             window.initModality(Modality.APPLICATION_MODAL);
             window.show();
 
             Main.popup = window;
-            //return sellerLoader;
         }
     }
 
+    /**
+     * This loads the menu to register a new sculpture
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleNewSculpture() throws Exception
     {
@@ -370,10 +383,13 @@ public class MainMenuController implements Initializable
         Main.popup = window;
     }
 
+    /**
+     * This loads the login screen and closes the main
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleLogout() throws Exception
     {
-        Stage window = new Stage();
         Parent current = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
         Main.window.close();
@@ -382,6 +398,10 @@ public class MainMenuController implements Initializable
         Main.window.setOnCloseRequest(e -> closeApplication());
     }
 
+    /**
+     * This loads the menu to register a new painting
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleNewPainting() throws Exception
     {
@@ -396,6 +416,10 @@ public class MainMenuController implements Initializable
         Main.popup = window;
     }
 
+    /**
+     * This loads the menu to add/view/delete photos to a users artwork
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleAddPhotos() throws Exception
     {
@@ -414,6 +438,10 @@ public class MainMenuController implements Initializable
         }
     }
 
+    /**
+     * This loads the menu to place a bid on an item
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleBid() throws Exception
     {
@@ -432,6 +460,10 @@ public class MainMenuController implements Initializable
         }
     }
 
+    /**
+     * This loads the menu to view the photos of an artwork
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleViewPhotos() throws Exception
     {
@@ -449,7 +481,11 @@ public class MainMenuController implements Initializable
             Main.popup = window;
         }
     }
-//
+
+    /**
+     * This loads the menu to view/select a user avatar
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleNewAvatar() throws Exception
     {
@@ -464,6 +500,10 @@ public class MainMenuController implements Initializable
         Main.popup = window;
     }
 
+    /**
+     * This loads the menu to create a custom avatar
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleNewCustom() throws Exception
     {
@@ -478,6 +518,9 @@ public class MainMenuController implements Initializable
         Main.popup = window;
     }
 
+    /**
+     *
+     */
     public void populateTables()
     {
         User user = Main.admin.getCurrentUser();
@@ -518,6 +561,12 @@ public class MainMenuController implements Initializable
     /**
      * Called to initialize a controller after its root element  has been
      * completely processed.
+     * It runs methods to setup tables, populate tables and populate profile info.
+     * It also checks if the main menu has been reloaded by a sub menu, if so it auto selects
+     * a tab such as profile
+     * @see #setupTable()
+     * @see #populateTables()
+     * @see #showProfile()
      *
      * @param location  The location used to resolve relative paths for the root object, or
      *                  {@code null} if the location is not known.
@@ -531,6 +580,8 @@ public class MainMenuController implements Initializable
 
         showProfile();
 
+        // If the main menu has been reloaded from the avatar screen
+        // then the profile tab becomes selected
         switch(Main.reloadedOn)
         {
             case "Profile":

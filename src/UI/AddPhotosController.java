@@ -106,7 +106,8 @@ public class AddPhotosController implements Initializable
 
     /**
      * This handles adding a new photo by taking the text in the field and appending said file path
-     * to the array of image file paths. It then displays the new image
+     * to the array of image file paths. It then displays the new image.
+     * If the artwork is a title then it replaces the only photo file path in the list
      */
     public void handleAddPhoto()
     {
@@ -135,6 +136,10 @@ public class AddPhotosController implements Initializable
         }
     }
 
+    /**
+     * This finds the artwork from the static list matching the one that the seller clicked on
+     * @return An artwork object
+     */
     public Artwork findArtwork()
     {
         for (AuctionListing i : Main.auctioneer.getAuctionListings())
@@ -151,6 +156,9 @@ public class AddPhotosController implements Initializable
         return null;
     }
 
+    /**
+     * This deletes the current photo and closes the form
+     */
     @FXML
     public void handleDelete()
     {
