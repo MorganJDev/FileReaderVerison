@@ -47,12 +47,17 @@ public class CanvasController
         drawCircle();
     }
 
+    @FXML
+    private void handleRectangleClick(){
+        drawRectangle();
+    }
+
     private void drawCircle(){
         GraphicsContext circle = canvasPane.getGraphicsContext2D();
         //circle.fillOval(20,20,20);
 
         canvasPane.setOnMousePressed(e -> {
-            circle.fillOval(e.getSceneX() - 197, e.getSceneY() - 77, 20, 20);
+            circle.fillOval(e.getSceneX() - 197, e.getSceneY() - 77, 25, 25);
 //            circle.setFill(Color.TRANSPARENT);
 //            circle.setStroke(Color.YELLOW);
         });
@@ -107,6 +112,13 @@ public class CanvasController
         });
     }
     private void drawRectangle(){
-
+        GraphicsContext rect = canvasPane.getGraphicsContext2D();
+        canvasPane.setOnMousePressed(e -> {
+            rect.fillRect(e.getSceneX() - 197, e.getSceneY() - 77, 30, 20);
+        });
+        colorPicker.setValue(Color.BLACK);
+        colorPicker.setOnAction(e -> {
+            rect.setFill(colorPicker.getValue());
+        });
     }
 }
