@@ -53,6 +53,10 @@ public class LoginController
 
             Main.window.setOnCloseRequest(e -> Main.closeApplication());
         }
+        else
+        {
+            usernameBox.setText("");
+        }
     }
 
     /**
