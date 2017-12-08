@@ -79,7 +79,7 @@
             <ButtonBar layoutX="211.0" layoutY="7.0" prefHeight="40.0" prefWidth="200.0">
               <buttons>
                 <Button mnemonicParsing="false" onMouseClicked="#handleCancel" text="Cancel" />
-                  <Button layoutX="135.0" layoutY="15.0" mnemonicParsing="false" text="Save" />
+                  <Button layoutX="135.0" layoutY="15.0" mnemonicParsing="false" text="Save" onAction="#handleSave"/>
               </buttons>
             </ButtonBar>
          </children>

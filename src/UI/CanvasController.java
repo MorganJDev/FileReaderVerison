@@ -1,18 +1,25 @@
 
 package UI;
 
+import Classes.User;
+import com.sun.corba.se.spi.ior.Writeable;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.canvas.GraphicsContext;
 //import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.image.WritableImage;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import java.awt.Canvas;
 import javafx.scene.paint.Color;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.renderable.RenderableImage;
+import java.awt.image.renderable.RenderableImageOp;
 
 /**
  * @author Georgi  Georgiev
@@ -27,6 +34,31 @@ public class CanvasController
     private void handleCancel()
     {
         Main.popup.close();
+    }
+
+    @FXML
+    private void handleSave()
+    {
+        WritableImage newWI = new WritableImage((int) canvasPane.getWidth() + 20,
+                (int) canvasPane.getHeight() + 20);
+
+        canvasPane.snapshot(null,newWI);
+        RenderableImage newRI = (RenderableImage) SwingFXUtils.fromFXImage(newWI,null);
+
+        //ImageIO.write(newRI,"png",filePath);
+
+
+       // findUser().setProfileImage
+    }
+
+    private User findUser() {
+        for (User i : Main.admin.getAllUsers()) {
+            if (i.getUsername().equals(Main.admin.getCurrentUser().getUsername())) {
+                return i;
+            }
+        }
+
+        return null;
     }
 
     @FXML
