@@ -15,11 +15,12 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+
 <!--d  -->
 
 <AnchorPane minHeight="354.0" minWidth="600.0" prefHeight="520.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainMenuController">
 	<children>
-		<TabPane layoutX="6.0" layoutY="7.0" prefHeight="462.0" prefWidth="861.0" tabClosingPolicy="UNAVAILABLE" fx:id="tabMenu">
+		<TabPane fx:id="tabMenu" layoutX="6.0" layoutY="7.0" prefHeight="462.0" prefWidth="861.0" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
 				<Tab text="My Artwork">
 					<content>
@@ -106,6 +107,7 @@
 										<ButtonBar layoutX="175.0" layoutY="379.0" prefHeight="40.0" prefWidth="241.0">
 											<buttons>
 												<Button fx:id="addPhotosButton" mnemonicParsing="false" onAction="#handleAddPhotos" text="Photos" />
+                                    <Button mnemonicParsing="false" onAction="#handleViewMyArtworkBids" text="View bids" />
 											</buttons>
 										</ButtonBar>
                               <ButtonBar layoutX="14.0" layoutY="379.0" prefHeight="40.0" prefWidth="225.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0">
@@ -207,15 +209,15 @@
 												<Button fx:id="filterButton" mnemonicParsing="false" text="Filter..." />
 											</buttons>
 										</ButtonBar>
-                              <Button layoutX="300.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" text="Favourite this seller" />
-                              <Button layoutX="167.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" text="View seller" />
+                              <Button fx:id="favouriteButton" layoutX="300.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleFavourite" prefHeight="25.0" prefWidth="123.0" text="Favourite" />
+                              <Button layoutX="167.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleViewSeller" prefHeight="25.0" prefWidth="122.0" text="View seller" />
 									</children>
 								</AnchorPane>
 							</items>
 						</SplitPane>
 					</content>
 				</Tab>
-				<Tab text="Profile" fx:id="profileTab">
+				<Tab fx:id="profileTab" text="Profile">
 					<content>
 						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="433.0" prefWidth="425.0">
                      <children>

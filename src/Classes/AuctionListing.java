@@ -8,7 +8,7 @@ public class AuctionListing {
 	private Artwork artwork;
 	private ArrayList<Bid> bids;
 	private int maxBids;
-	private String status = "Unlisted";
+	private String status;
 	private int reservePrice;
 	private User winningBidder;
 	private int winningPrice;
@@ -18,7 +18,10 @@ public class AuctionListing {
 		this.artwork = artwork;
 		this.maxBids = maxBids;
 		this.reservePrice = reservePrice;
+		this.status = "Active";
 		this.bids = new ArrayList<Bid>();
+		this.winningBidder = seller;
+		this.winningPrice = reservePrice;
 	}
 
 	public AuctionListing(User seller, Artwork artwork, int maxBids, int reservePrice, String currentStatus, ArrayList<Bid> currentBids
@@ -27,6 +30,7 @@ public class AuctionListing {
 		this.artwork = artwork;
 		this.maxBids = maxBids;
 		this.reservePrice = reservePrice;
+		this.status = currentStatus;
 		this.bids = currentBids;
 		this.winningBidder = currentWinner;
 		this.winningPrice = currentWinningPrice;
@@ -42,6 +46,10 @@ public class AuctionListing {
 
 	public void setSeller(User seller) {
 		this.seller = seller;
+	}
+
+	public User getSeller() {
+		return this.seller;
 	}
 
 	public String getSellerUsername() {
