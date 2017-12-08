@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.control.TableColumn;
@@ -47,6 +48,8 @@ public class MainMenuController implements Initializable
     private TableColumn<AuctionListing, String> browseTitleColumn;
     @FXML
     private TableColumn<AuctionListing, String> browseSellerColumn;
+    @FXML
+    private Button favouriteButton;
 
     @FXML
     private Label artDescriptionLabel;
@@ -190,6 +193,13 @@ public class MainMenuController implements Initializable
         selectedAuctionListing = auctionListing;
 
         if (auctionListing != null) {
+            favouriteButton.setText("Favourite");
+            String seller = auctionListing.getSellerUsername();
+            for (User fav : Main.admin.getCurrentUser().getFavouriteUsers()) {
+                if (seller.equals(fav.getUsername())) {
+                    favouriteButton.setText("Unfavourite");
+                }
+            }
             Artwork artwork = auctionListing.getArtwork();
 
             artDescriptionLabel2.setText(artwork.getDescription());
@@ -306,6 +316,63 @@ public class MainMenuController implements Initializable
                 i.setPostcode(postCodeField.getText());
 
                 Main.admin.setCurrentUser(i);
+            }
+        }
+    }
+
+    @FXML
+    private SellHistoryDialogueController handleViewMyArtworkBids() throws Exception
+    {
+        Stage window = new Stage();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SellHistoryDialogue.fxml"));
+        Parent current = loader.load();
+        SellHistoryDialogueController artowrkBidsloader = loader.getController();
+        artowrkBidsloader.initSelectedAuction(selectedAuctionListing);
+
+        window.setScene(new Scene(current));
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.show();
+
+        Main.popup = window;
+        return artowrkBidsloader;
+    }
+
+    @FXML
+    private ViewSellerDialogueController handleViewSeller() throws Exception
+    {
+        Stage window = new Stage();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewSellerDialog.fxml"));
+        Parent current = loader.load();
+        ViewSellerDialogueController sellerLoader = loader.getController();
+        sellerLoader.initSelectedAuction(selectedAuctionListing);
+
+        window.setScene(new Scene(current));
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.show();
+
+        Main.popup = window;
+        return sellerLoader;
+    }
+
+    @FXML
+    private void handleFavourite() throws Exception
+    {
+        boolean alreadyFavourited = false;
+        int i = 0;
+        if (selectedAuctionListing != null) {
+            while(!Main.admin.getCurrentUser().getFavouriteUsers().isEmpty()) {
+                ArrayList<User> allFavs = Main.admin.getCurrentUser().getFavouriteUsers();
+                if (selectedAuctionListing.getSeller().equals(allFavs.get(i))) {
+                    Main.admin.getCurrentUser().getFavouriteUsers().remove(i);
+                    alreadyFavourited = true;
+                } else {
+                    i++;
+                }
+            }
+            if (!alreadyFavourited) {
+                Main.admin.getCurrentUser().addFavouriteUser(selectedAuctionListing.getSeller());
             }
         }
     }
