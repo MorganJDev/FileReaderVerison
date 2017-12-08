@@ -73,6 +73,7 @@ public class CanvasController
     {
         canvasPane.setOnMousePressed(null);
         canvasPane.setOnMouseReleased(null);
+        canvasPane.setOnMouseDragged(null);
     }
 
     private void drawLine(){
@@ -127,7 +128,7 @@ public class CanvasController
     private void drawRectangle(){
 
         resetDraw();
-        
+
         GraphicsContext rect = canvasPane.getGraphicsContext2D();
         canvasPane.setOnMousePressed(e -> {
             rect.fillRect(e.getSceneX() - 197, e.getSceneY() - 77, 30, 20);
