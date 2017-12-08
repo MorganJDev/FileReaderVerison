@@ -6,10 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import UI.*;
-
-import java.time.LocalDateTime;
 
 /**
  * @author Morgan Jones 904410
@@ -23,7 +19,7 @@ public class Main extends Application
     public static UserManager admin;
     public static Auctioneer auctioneer;
     public static AuctionListing selectedAuction;
-    public static boolean isReloaded;
+    public static String reloadedOn;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception
@@ -49,7 +45,7 @@ public class Main extends Application
 
 	public void SetupApplication()
     {
-        isReloaded = false;
+        reloadedOn = "";
         admin = new UserManager();
 	    auctioneer = new Auctioneer();
         selectedAuction = null;

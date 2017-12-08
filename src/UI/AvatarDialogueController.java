@@ -39,7 +39,7 @@ public class AvatarDialogueController implements Initializable
         findUser().setProfileImage(selected);
 
         Stage window = new Stage();
-        Main.isReloaded = true;
+        Main.reloadedOn = "Profile";
 
         Parent current = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
 

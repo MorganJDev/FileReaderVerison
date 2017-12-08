@@ -12,15 +12,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Button;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static UI.Main.closeApplication;
@@ -242,6 +239,7 @@ public class MainMenuController implements Initializable
 
     public javafx.scene.control.Tab profileTab;
     public javafx.scene.control.TabPane tabMenu;
+    public javafx.scene.control.Tab browseTab;
 
     @FXML
     private void showProfile()
@@ -533,10 +531,18 @@ public class MainMenuController implements Initializable
 
         showProfile();
 
-        if (Main.isReloaded)
+        switch(Main.reloadedOn)
         {
-            tabMenu.getSelectionModel().select(profileTab);
-            Main.isReloaded = false;
+            case "Profile":
+                tabMenu.getSelectionModel().select(profileTab);
+                break;
+            case "Browse":
+                tabMenu.getSelectionModel().select(browseTab);
+                break;
+            default:
+                break;
         }
+
+        Main.reloadedOn = "";
     }
 }

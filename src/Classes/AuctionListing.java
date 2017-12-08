@@ -133,7 +133,7 @@ public class AuctionListing {
 		}
 
 		if (newbid.getBidder() == this.winningBidder) {
-			newbid.setStatus("Rejected Heighest");
+			newbid.setStatus("Rejected Highest");
 			return newbid.getStatus();
 		}
 

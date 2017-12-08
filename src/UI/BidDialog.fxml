@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="149.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BidDialogController">
+<AnchorPane prefHeight="149.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BidDialogController">
    <children>
       <ButtonBar layoutX="189.0" layoutY="104.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button mnemonicParsing="false"  text="Place Bid" />
-            <Button mnemonicParsing="false" text="Cancel" onAction="#handleCancel"/>
+          <Button mnemonicParsing="false" onAction="#handlePlaceBid" text="Place Bid" />
+            <Button mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
         </buttons>
       </ButtonBar>
       <GridPane layoutX="14.0" layoutY="13.0" prefHeight="91.0" prefWidth="375.0">

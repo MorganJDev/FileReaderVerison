@@ -122,7 +122,7 @@
 						</SplitPane>
 					</content>
 				</Tab>
-				<Tab text="Browse Artwork">
+				<Tab fx:id="browseTab" text="Browse Artwork">
 					<content>
 						<SplitPane dividerPositions="0.5005807200929152" prefHeight="160.0" prefWidth="200.0">
 							<items>
