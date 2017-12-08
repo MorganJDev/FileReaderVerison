@@ -21,8 +21,8 @@ public class Painting extends Artwork {
     * @param height The paintings height
     */
     public Painting(String title, String desc, String creator, int creationYear,
-                    ArrayList<String> photos, int width, int height, String type) {
-        super(title,desc,creator,creationYear,photos,type);
+                    ArrayList<String> photos, int width, int height) {
+        super(title,desc,creator,creationYear,photos);
         this.width = width;
         this.height = height;
     }

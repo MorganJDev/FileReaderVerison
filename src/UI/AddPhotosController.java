@@ -2,6 +2,7 @@ package UI;
 
 import Classes.Artwork;
 import Classes.AuctionListing;
+import Classes.Sculpture;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -114,7 +115,8 @@ public class AddPhotosController implements Initializable
         String filepath = imagePathField.getText();
 
         // Only sculptures have multiple photos
-        if(Main.selectedAuction.getArtwork().getType().equals("sculpture"))
+        //if(Main.selectedAuction.getArtwork().getType().equals("sculpture"))
+        if(Main.selectedAuction.getArtwork() instanceof Sculpture)
         {
             findArtwork().getPhotos().add(filepath);
 
