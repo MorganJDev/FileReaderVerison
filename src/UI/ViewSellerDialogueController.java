@@ -12,6 +12,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * @author Luke Thomas [student number]
+ */
 public class ViewSellerDialogueController implements Initializable{
 
     @FXML

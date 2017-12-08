@@ -16,6 +16,9 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author Luke Thomas [student no]
+ */
 public class SellHistoryDialogueController implements Initializable {
 
     @FXML

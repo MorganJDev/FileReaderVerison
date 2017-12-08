@@ -1,32 +1,32 @@
 package UI;
 
-import Classes.Artwork;
-import Classes.AuctionListing;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
+ * This manages the GUI for viewing artwork photos
+ *
  * @author Morgan Jones 904410
+ * @version 1.0
  */
 public class PhotosDialogueController implements Initializable
 {
+    // References GUI
     public javafx.scene.image.ImageView artPhoto;
     public javafx.scene.control.Button previousButton;
     public javafx.scene.control.Button nextButton;
 
+    // References the photos being displayed
     private static int picturePosition;
     private ArrayList<String> allPhotos;
 
+    /**
+     * This closes the form
+     */
     @FXML
     private void handleCancel()
     {
@@ -36,6 +36,7 @@ public class PhotosDialogueController implements Initializable
     /**
      * Called to initialize a controller after its root element has been
      * completely processed.
+     * It enables/disables the next button depending on number of photos
      *
      * @param location  The location used to resolve relative paths for the root object, or
      *                  {@code null} if the location is not known.
@@ -44,7 +45,7 @@ public class PhotosDialogueController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-
+        // The auction that was selected on the main form
         if(Main.selectedAuction.getArtwork().getPhotos() != null)
         {
             allPhotos = Main.selectedAuction.getArtwork().getPhotos();
@@ -65,6 +66,10 @@ public class PhotosDialogueController implements Initializable
         }
     }
 
+    /**
+     * This handles the next button.
+     * It enables the previous button, loads the next image and checks if it is the last image
+     */
     @FXML
     public void handleNext()
     {
@@ -79,6 +84,11 @@ public class PhotosDialogueController implements Initializable
         }
     }
 
+    /**
+     * This handles the previous button.
+     * It enables the next button and loads the previous image.
+     * It also disables the previous button if the picture is the first one
+     */
     @FXML
     public void handlePrevious()
     {

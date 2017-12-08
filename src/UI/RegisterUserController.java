@@ -1,23 +1,25 @@
 package UI;
 
-import Classes.FileWriter;
 import Classes.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.time.LocalDateTime;
-
 import static UI.Main.closeApplication;
 
 /**
+ * This manages the GUI for registering a new user.
+ * It saves the new user and logs them in
+ *
  * @author Morgan Jones 904410
+ * @version 1.0
  */
 
 public class RegisterUserController
 {
+    // References GUI
     public javafx.scene.control.TextField username;
     public javafx.scene.control.TextField firstName;
     public javafx.scene.control.TextField lastName;
@@ -28,6 +30,12 @@ public class RegisterUserController
     public javafx.scene.control.TextField county;
     public javafx.scene.control.TextField postcode;
 
+    /**
+     * This extracts data from the text boxes and creates a new user from it
+     * It adds the new user to the static list of all users and loads the main menu,
+     * logging them in
+     * @throws Exception If file is not found
+     */
     public void handleOk() throws Exception
     {
         String username = this.username.getText();
@@ -43,6 +51,7 @@ public class RegisterUserController
         User newUser = new User(firstName,lastName,username, telephoneNumber,addressLineOne,
                 addressLineTwo,townOrCity,county,postcode, LocalDateTime.now());
 
+        // Adds new user to static list of user
         Main.admin.registerUser(newUser);
 
         Stage window = new Stage();
@@ -54,11 +63,17 @@ public class RegisterUserController
 
         Main.window.close();
         Main.window = window;
+
+        // Logs in the current user
         Main.admin.setCurrentUser(newUser);
 
         window.setOnCloseRequest(e -> closeApplication());
     }
 
+    /**
+     * This closes the form and reloads the login screen
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleCancel() throws Exception
     {
