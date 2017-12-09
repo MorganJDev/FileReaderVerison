@@ -162,7 +162,7 @@ public class AvatarDialogueController implements Initializable
     @FXML
     private void handleArt6()
     {
-        selected = "/ProfileImages/twittfr.png";
+        selected = "/ProfileImages/jens.png";
         artPhoto1.setOpacity(0.5);
         artPhoto2.setOpacity(0.5);
         artPhoto3.setOpacity(0.5);
@@ -191,7 +191,7 @@ public class AvatarDialogueController implements Initializable
         artPhoto3.setImage(new Image("/ProfileImages/br-loogo-tans-blue-trans.png"));
         artPhoto4.setImage(new Image("/ProfileImages/Gefffngr_Face.png"));
         artPhoto5.setImage(new Image("/ProfileImages/profie-23f98782_960_720.png"));
-        artPhoto6.setImage(new Image("/ProfileImages/twittfr.png"));
+        artPhoto6.setImage(new Image("/ProfileImages/jens.png"));
 
         switch(selected)
         {
@@ -210,7 +210,7 @@ public class AvatarDialogueController implements Initializable
             case "/ProfileImages/profie-23f98782_960_720.png":
                 handleArt5();
                 break;
-            case "/ProfileImages/twittfr.png":
+            case "/ProfileImages/jens.png":
                 handleArt6();
                 break;
             default:
