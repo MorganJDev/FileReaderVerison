@@ -24,6 +24,11 @@ public class ViewSellerDialogueController implements Initializable{
     // Selected auction from main menu
     private AuctionListing selectedAuctionListing;
 
+    /**
+     * Sets up the scene so that the selected sellers username and profile image
+     * are displayed, also sets the text of the favourite button depending on whether
+     * the current user has favourited this seller or not
+     */
     private void setupScene() {
         if (selectedAuctionListing != null) {
             sellerName.setText(selectedAuctionListing.getSellerUsername());
@@ -38,6 +43,11 @@ public class ViewSellerDialogueController implements Initializable{
         }
     }
 
+    /**
+     * This adds the selected seller to the current users favourite list if they are not on it already,
+     * otherwise it will remove them from the current users favourites
+     * @throws Exception if no auction is selected
+     */
     @FXML
     private void handleFavourite() throws Exception
     {
@@ -61,12 +71,24 @@ public class ViewSellerDialogueController implements Initializable{
         }
     }
 
+    /**
+     * This closes the form upon clicking cancel
+     */
     @FXML
     private void handleCancel()
     {
         Main.popup.close();
     }
 
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed. It also loads the information stored in the currently selected auction
+     * so that we can get information from the seller
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.selectedAuctionListing = Main.selectedAuction;

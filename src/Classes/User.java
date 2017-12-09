@@ -27,13 +27,13 @@ public class User
      * Creates new instance of user
      * @param forename Classes.User forename
      * @param surname Classes.User surname
+     * @param username The username
      * @param phone Classes.User telephone number
      * @param add1 Address line 1
      * @param add2 Address line 2
      * @param city Classes.User city
      * @param county Classes.User county
      * @param post Classes.User postcode
-     * @param username The username
      */
     public User (String forename, String surname, String username, String phone, String add1, String add2,
                  String city, String county, String post,LocalDateTime time)
@@ -52,17 +52,23 @@ public class User
         profileImage = "";
     }
 
+    /**
+     * Set the photo for this user
+     * @param profileImage users photo
+     */
     public void setProfileImage(String profileImage)
     {
         this.profileImage = profileImage;
     }
 
+    /**
+     * Get the users profile image
+     * @return users photo
+     */
     public String getProfileImage()
     {
         return profileImage;
     }
-
-    // Username
 
     /**
      * Sets the username
@@ -74,18 +80,16 @@ public class User
     }
 
     /**
-     *
-     * @return The username
+     * Get the users username
+     * @return Users username
      */
     public String getUsername()
     {
         return username;
     }
 
-    // Forename Set/Get
-
     /**
-     * Sets forename
+     * Sets users forename
      * @param forename Classes.User forename
      */
     public void setForename(String forename)
@@ -94,7 +98,7 @@ public class User
     }
 
     /**
-     *
+     * Gets the forename of this user
      * @return Classes.User forename
      */
     public String getForename()
@@ -105,7 +109,7 @@ public class User
     // Surname Set/Get
 
     /**
-     * Sets Surname
+     * Sets users surname
      * @param surname Classes.User surname
      */
     public void setSurname(String surname)
@@ -114,7 +118,7 @@ public class User
     }
 
     /**
-     *
+     * Gets this users surname
      * @return Classes.User surname
      */
     public String getSurname()
@@ -134,15 +138,13 @@ public class User
     }
 
     /**
-     *
+     * Get this users telephone number
      * @return Classes.User telephone number
      */
     public String getTelephoneNumber()
     {
         return telephoneNumber;
     }
-
-    // Address Set/Get
 
     /**
      * Sets line 1 of the address
@@ -154,7 +156,7 @@ public class User
     }
 
     /**
-     *
+     * Get the first line of the users address
      * @return The first line of the Address
      */
     public String getAddressLineOne()
@@ -172,6 +174,7 @@ public class User
     }
 
     /**
+     * Get the second line of the users address
      * @return The second line of the address
      */
     public String getAddressLineTwo()
@@ -189,6 +192,7 @@ public class User
     }
 
     /**
+     * Get the city the user lives in
      * @return The Users city
      */
     public String getCity()
@@ -206,6 +210,7 @@ public class User
     }
 
     /**
+     * Get the users county
      * @return the county in address
      */
     public String getCounty()
@@ -223,6 +228,7 @@ public class User
     }
 
     /**
+     * Get the users postcode
      * @return the postocde in address
      */
     public String getPostcode()
@@ -242,7 +248,8 @@ public class User
     }
 
     /**
-     * @return the users last login dateTime
+     * Get the last login date of this user
+     * @return users last login
      */
     public LocalDateTime getLastLogin()
     {
@@ -252,7 +259,7 @@ public class User
     // Favourite Users
 
     /**
-     * Adds a user object to a list of favourites
+     * Adds a user to this users list of favourites
      * @param favouriteUser A user object
      */
     public void addFavouriteUser(User favouriteUser)
@@ -261,6 +268,7 @@ public class User
     }
 
     /**
+     * Get this users favourited users
      * @return a list of favourites
      */
     public ArrayList<User> getFavouriteUsers()

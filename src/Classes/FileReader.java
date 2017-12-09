@@ -7,11 +7,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
+ * This class is used to read files storing information on users, favourites and auctions on the system
+ * so that the system can reload information from the last time it was used
  * @author Georgi Georgiev
+ * @author Luke Thomas 905557
  */
 public class FileReader {
 
+	/**
+	 * Method used to read a single user from the input file
+	 * @param line Line containing information about one user
+	 * @return The user that is read in
+	 */
     private static User newUser (String line) {
         Scanner lineScanner = new Scanner(line);
         lineScanner.useDelimiter("%");
@@ -41,10 +48,18 @@ public class FileReader {
 
         return user;
     }
-    //
+
+	/**
+	 * Method used to read a single auction from the input file
+	 * @param line Line containing information about one auction
+	 * @param um The usermanager containing all of the users stored on the system
+	 * @return The auction that is read in
+	 */
     private static AuctionListing newListing(String line, UserManager um) {
         AuctionListing newListing;
     	ArrayList<String> images = new ArrayList<String>();
+
+    	//First the information of the artwork associated with this auction is read in
     	Artwork artwork = null;
     	Scanner lineScanner = new Scanner(line);
         lineScanner.useDelimiter("%");
@@ -53,6 +68,9 @@ public class FileReader {
 		String desc = lineScanner.next();
 		String creator = lineScanner.next();
 		int creationYear = lineScanner.nextInt();
+
+		/*If the artwork is a painting then read in the additional
+		information associated with a painting*/
     	if (type.equals("painting")) {
 			while (!lineScanner.hasNextInt()) {
 				String image = lineScanner.next();
@@ -62,7 +80,12 @@ public class FileReader {
     		int height = lineScanner.nextInt();
     		Painting painting = new Painting(title,desc,creator,creationYear,images,width,height);
     		artwork = painting;
+
+    	//Else, do the same but for sculpture
     	} else if (type.equals("sculpture")) {
+
+    		/*Because width comes after an artworks photos in the input file, as long as next is not an
+			int we know that it must be a photo*/
     		while (!lineScanner.hasNextInt()) {
     			String image = lineScanner.next();
     			images.add(image);
@@ -74,6 +97,10 @@ public class FileReader {
     		Sculpture sculpture = new Sculpture(title,desc,creator,creationYear,images,width,height,depth,material);
     		artwork = sculpture;
     	}
+
+    	/*Next we read in the auction listing information, because we read in users before
+    	* auctions, we can just store the username of the seller and current winner and just compare
+    	* them with all of the stored users to find the correct one for each*/
     	String sellerName = lineScanner.next();
     	for(User u : um.getAllUsers()) {
     		if (u.getUsername().equals(sellerName)) {
@@ -86,6 +113,9 @@ public class FileReader {
 					if (z.getUsername().equals(winnerName)) {
 						User winner = z;
 						int winPrice = lineScanner.nextInt();
+
+						/*After reading in the auction listing information, we need to read in all of
+						the bids placed on this auction listing*/
 						if (lineScanner.hasNext()) {
 							String bidString = lineScanner.next();
 							Scanner allBids = new Scanner(bidString);
@@ -95,7 +125,9 @@ public class FileReader {
     	    					b.setListing(auction);
 							}
     	    				lineScanner.close();
-    	    				return auction;
+							return auction;
+
+						//If an auction listing has no bids yet, we use the alternative constructor to read it in
     	    			} else {
 							AuctionListing auction = new AuctionListing(seller, artwork, maxbids,reserve);
 							auction.setStatus(status);
@@ -109,8 +141,14 @@ public class FileReader {
     	lineScanner.close();
     	return null;
     }
-    
-    private static ArrayList<Bid> newBid (Scanner lineScanner, UserManager um) {
+
+	/**
+	 * Method used to read in a bid placed on an auction listing
+	 * @param lineScanner Line containing information about a single bid
+	 * @param um The userManager containing all of the users on the system
+	 * @return The bid that is read in
+	 */
+	private static ArrayList<Bid> newBid (Scanner lineScanner, UserManager um) {
     	lineScanner.useDelimiter(";");
 		ArrayList<Bid> bidlist = new ArrayList<Bid>();
 		while(lineScanner.hasNext()) {
@@ -129,7 +167,12 @@ public class FileReader {
 		}
 		return bidlist;
 	}
-    
+
+	/**
+	 * Method used to add a user to another users favourite list
+	 * @param in Line containing information about a favourite relationship
+	 * @param allUsers List of all users on the system
+	 */
     private static void addFavourites(Scanner in, ArrayList<User> allUsers) {
     	while (in.hasNext()) {
     		String nextLine = in.nextLine ();
@@ -149,8 +192,13 @@ public class FileReader {
 			lineScanner.close();
     	}
     }
-    
-    public static void setFavouriteUsers(String filename, UserManager um) {
+
+	/**
+	 * Method used to read a file made up of favourite relationships between users
+	 * @param filename the name of the file
+	 * @param um the usermanager containing all the users
+	 */
+	public static void setFavouriteUsers(String filename, UserManager um) {
     	File inputFile = new File (filename);
     	Scanner in = null;
     	try {
@@ -162,7 +210,12 @@ public class FileReader {
     	}
     	addFavourites(in, um.getAllUsers());
     }
-    
+
+	/**
+	 * Method used to read the data file used by the program for storing users
+	 * @param in The scanner of the file
+	 * @return List of all the users read from the file
+	 */
 	private static ArrayList<User> readUserDataFile (Scanner in) {
 		ArrayList<User> allUsers = new ArrayList<User>();
 		while (in.hasNext()) {
@@ -172,7 +225,13 @@ public class FileReader {
 		in.close();
 		return allUsers;
 	}
-	
+
+	/**
+	 * Method used to read the data file used by the program for storing auctions
+	 * @param in The scanner of the file
+	 * @param um The user manager containing all users stored in the system
+	 * @return List of all the auctions read from the file
+	 */
 	private static ArrayList<AuctionListing> readAuctionDataFile (Scanner in, UserManager um) {
 		ArrayList<AuctionListing> allAuctions = new ArrayList<AuctionListing>();
 		while (in.hasNext()) {
@@ -182,7 +241,12 @@ public class FileReader {
 		in.close();
 		return allAuctions;
 	}
-	
+
+	/**
+	 * This method is used to read a file made up of users
+	 * @param filename the name of the file
+	 * @return the list of users stored in the file
+	 */
 	public static ArrayList<User> readUsers (String filename) {
 		File inputFile = new File (filename);
 		Scanner in = null;
@@ -195,7 +259,13 @@ public class FileReader {
 		}
 		return FileReader.readUserDataFile(in);
 	}
-	
+
+	/**
+	 * This method is used to read a file made up of auctions
+	 * @param filename the name of the file
+	 * @param um the user manager storing all of the users on the system
+	 * @return the list of users stored in the file
+	 */
 	public static ArrayList<AuctionListing> readAuctions (String filename, UserManager um) {
 		File inputFile = new File (filename);
 		Scanner in = null;

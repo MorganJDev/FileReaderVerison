@@ -29,14 +29,17 @@ public class UserManager
         allUsers = new ArrayList<>();
     }
 
+    /**
+     * Set the user currently logged in to the system
+     * @param user Currently logged in user
+     */
     public void setCurrentUser(User user)
     {
         currentUser = user;
     }
 
-    // Current user Set/Get
-
     /**
+     * Get the user who is currently logged in
      * @return The current user
      */
     public User getCurrentUser()
@@ -71,7 +74,8 @@ public class UserManager
     }
 
     /**
-     * @return The list of allUsers
+     * Get a list of all users on the system
+     * @return The list of all users
      */
     public ArrayList<User> getAllUsers()
     {
@@ -81,8 +85,8 @@ public class UserManager
     // Possible method
 
     /**
-     * Method to populate array with all users in file
-     *
+     * Method to populate array with all users in file, also
+     * populates the favourite list for every user
      */
     public void populateArray()
     {
@@ -90,6 +94,10 @@ public class UserManager
         FileReader.setFavouriteUsers("favouriteUsers.txt",this);
     }
 
+    /**
+     * Writes all of the users stored on the system to an output file,
+     * also writes all favourited users to a different file
+     */
     public void writeFiles()
     {
         FileWriter.writeUsers("users.txt",this);

@@ -60,24 +60,6 @@ public class LoginController
     }
 
     /**
-     * Loads the admin menu and closes login
-     * @throws Exception If file is not found
-     */
-    @FXML
-    public void handleAdminLogin() throws Exception
-    {
-        Stage window = new Stage();
-
-        Parent current = FXMLLoader.load(getClass().getResource("AdminMenu.fxml"));
-
-        window.setScene(new Scene(current));
-        window.show();
-
-        Main.window.close();
-        Main.window = window;
-    }
-
-    /**
      * Searches the static list of all users for a matching username to the input
      * @return True/False if user is found
      */
