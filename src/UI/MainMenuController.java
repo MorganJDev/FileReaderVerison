@@ -258,7 +258,10 @@ public class MainMenuController implements Initializable
         countyField.setText(newUser.getCounty());
         postCodeField.setText(newUser.getPostcode());
 
-        profileImageView.setImage(new Image(Main.admin.getCurrentUser().getProfileImage()));
+        if(Main.admin.getCurrentUser().getProfileImage() != "")
+        {
+            profileImageView.setImage(new Image(Main.admin.getCurrentUser().getProfileImage()));
+        }
     }
 
     /**

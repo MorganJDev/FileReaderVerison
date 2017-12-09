@@ -53,6 +53,7 @@ public class RegisterUserController
 
         // Adds new user to static list of user
         Main.admin.registerUser(newUser);
+        Main.admin.setCurrentUser(newUser);
 
         Stage window = new Stage();
 
@@ -65,7 +66,6 @@ public class RegisterUserController
         Main.window = window;
 
         // Logs in the current user
-        Main.admin.setCurrentUser(newUser);
 
         window.setOnCloseRequest(e -> closeApplication());
     }
