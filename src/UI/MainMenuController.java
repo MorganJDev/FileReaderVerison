@@ -174,6 +174,11 @@ public class MainMenuController implements Initializable
 
     }
 
+    /**
+     * Method used to manage the currently selected filter and make sure only artworks
+     * that match the specified filter appear on screen
+     * @param filter The filter that has been chosen
+     */
     private void handleFilter(String filter) {
         ObservableList<AuctionListing> newFilterList = FXCollections.observableArrayList();
         ArrayList<AuctionListing> auctionListings = new ArrayList<>(
@@ -209,6 +214,7 @@ public class MainMenuController implements Initializable
                 browseArtworkTable.setItems(newFilterList);
                 break;
 
+            //If "All" is selected or nothing is selected, display all
             default:
                 for (AuctionListing listing : auctionListings) {
                     newFilterList.add(listing);
