@@ -35,10 +35,21 @@ import java.util.logging.Logger;
 
 public class CanvasController
 {
-    @FXML javafx.scene.canvas.Canvas canvasPane;
-    @FXML javafx.scene.control.ColorPicker colorPicker;
+    private final int CIRCLE_DIMENSIONS = 25;
+    private final int RECTANGLE_X = 30;
+    private final int RECTANGLE_Y = 20;
+    private final int CURSOR_X = 185;
+    private final int CURSOR_Y = 70;
+    private final int SHAPE_X = 197;
+    private final int SHAPE_Y = 77;
+
+    @FXML
+    javafx.scene.canvas.Canvas canvasPane;
+    @FXML
+    javafx.scene.control.ColorPicker colorPicker;
     @FXML
     CheckBox fillCheckBox;
+
     @FXML
     private void handleCancel()
     {
@@ -76,8 +87,6 @@ public class CanvasController
                 System.out.println("Error saving");
             }
         }
-
-       // findUser().setProfileImage
     }
 
     private void reloadMain() throws Exception
@@ -104,6 +113,13 @@ public class CanvasController
         }
 
         return null;
+    }
+
+    private void resetDraw()
+    {
+        canvasPane.setOnMousePressed(null);
+        canvasPane.setOnMouseReleased(null);
+        canvasPane.setOnMouseDragged(null);
     }
 
     @FXML
@@ -138,9 +154,11 @@ public class CanvasController
         canvasPane.setOnMousePressed(e -> {
 
             if (fillCheckBox.isSelected()) {
-                circle.fillOval(e.getSceneX() - 197, e.getSceneY() - 77, 25, 25);
+                circle.fillOval(e.getSceneX() - SHAPE_X, e.getSceneY() - SHAPE_Y,
+                        CIRCLE_DIMENSIONS, CIRCLE_DIMENSIONS);
             } else {
-                circle.strokeOval(e.getSceneX() - 197, e.getSceneY() - 77, 25, 25);
+                circle.strokeOval(e.getSceneX() - SHAPE_X, e.getSceneY() - SHAPE_Y,
+                        CIRCLE_DIMENSIONS, CIRCLE_DIMENSIONS);
             }
         });
 
@@ -154,13 +172,6 @@ public class CanvasController
         });
     }
 
-    private void resetDraw()
-    {
-        canvasPane.setOnMousePressed(null);
-        canvasPane.setOnMouseReleased(null);
-        canvasPane.setOnMouseDragged(null);
-    }
-
     private void drawLine(){
 
         resetDraw();
@@ -171,12 +182,12 @@ public class CanvasController
 
         canvasPane.setOnMousePressed(e -> {
             gc.beginPath();
-            gc.lineTo(e.getSceneX() - 185, e.getSceneY() - 70);
+            gc.lineTo(e.getSceneX() - CURSOR_X, e.getSceneY() - CURSOR_Y);
             gc.stroke();
         });
 
         canvasPane.setOnMouseReleased(e -> {
-            gc.lineTo(e.getSceneX()- 185, e.getSceneY() - 70);
+            gc.lineTo(e.getSceneX()- CURSOR_X, e.getSceneY() - CURSOR_Y);
             gc.stroke();
         });
 
@@ -190,24 +201,24 @@ public class CanvasController
 
         resetDraw();
 
-        GraphicsContext gcontext = canvasPane.getGraphicsContext2D();
-        gcontext.setStroke(Color.BLACK);
-        gcontext.setLineWidth(1);
+        GraphicsContext gc = canvasPane.getGraphicsContext2D();
+        gc.setStroke(Color.BLACK);
+        gc.setLineWidth(1);
 
         canvasPane.setOnMousePressed(e -> {
-            gcontext.beginPath();
-            gcontext.lineTo(e.getSceneX() - 185, e.getSceneY() - 70);
-            gcontext.stroke();
+            gc.beginPath();
+            gc.lineTo(e.getSceneX() - CURSOR_X, e.getSceneY() - CURSOR_Y);
+            gc.stroke();
         });
 
         canvasPane.setOnMouseDragged(e -> {
-            gcontext.lineTo(e.getSceneX() - 185, e.getSceneY() - 70);
-            gcontext.stroke();
+            gc.lineTo(e.getSceneX() - CURSOR_X, e.getSceneY() - CURSOR_Y);
+            gc.stroke();
         });
 
         colorPicker.setValue(Color.BLACK);
         colorPicker.setOnAction(e -> {
-            gcontext.setStroke(colorPicker.getValue());
+            gc.setStroke(colorPicker.getValue());
         });
     }
     private void drawRectangle(){
@@ -217,9 +228,9 @@ public class CanvasController
         GraphicsContext rect = canvasPane.getGraphicsContext2D();
         canvasPane.setOnMousePressed(e -> {
             if (fillCheckBox.isSelected()) {
-                rect.fillRect(e.getSceneX() - 197, e.getSceneY() - 77, 30, 20);
+                rect.fillRect(e.getSceneX() - SHAPE_X, e.getSceneY() - SHAPE_Y, RECTANGLE_X, RECTANGLE_Y);
             } else {
-                rect.strokeRect(e.getSceneX() - 197, e.getSceneY() - 77, 30, 20);
+                rect.strokeRect(e.getSceneX() - SHAPE_X, e.getSceneY() - SHAPE_Y, RECTANGLE_X, RECTANGLE_Y);
             }
         });
 
