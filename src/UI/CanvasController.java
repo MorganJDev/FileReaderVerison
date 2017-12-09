@@ -2,13 +2,13 @@
 package UI;
 
 import Classes.User;
-import com.sun.corba.se.spi.ior.Writeable;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.canvas.GraphicsContext;
 //import javafx.scene.control.ColorPicker;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.image.WritableImage;
 import javafx.scene.shape.Circle;
@@ -29,7 +29,8 @@ public class CanvasController
 {
     @FXML javafx.scene.canvas.Canvas canvasPane;
     @FXML javafx.scene.control.ColorPicker colorPicker;
-
+    @FXML
+    CheckBox fillCheckBox;
     @FXML
     private void handleCancel()
     {
@@ -85,19 +86,27 @@ public class CanvasController
     }
 
     private void drawCircle(){
-        GraphicsContext circle = canvasPane.getGraphicsContext2D();
-        //circle.fillOval(20,20,20);
 
         resetDraw();
 
+        GraphicsContext circle = canvasPane.getGraphicsContext2D();
+
         canvasPane.setOnMousePressed(e -> {
-            circle.fillOval(e.getSceneX() - 197, e.getSceneY() - 77, 25, 25);
-//            circle.setFill(Color.TRANSPARENT);
-//            circle.setStroke(Color.YELLOW);
+
+            if (fillCheckBox.isSelected()) {
+                circle.fillOval(e.getSceneX() - 197, e.getSceneY() - 77, 25, 25);
+            } else {
+                circle.strokeOval(e.getSceneX() - 197, e.getSceneY() - 77, 25, 25);
+            }
         });
+
         colorPicker.setValue(Color.BLACK);
         colorPicker.setOnAction(e -> {
-            circle.setFill(colorPicker.getValue());
+            if (fillCheckBox.isSelected()) {
+                circle.setFill(colorPicker.getValue());
+            } else {
+                circle.setStroke((colorPicker.getValue()));
+            }
         });
     }
 
@@ -163,11 +172,20 @@ public class CanvasController
 
         GraphicsContext rect = canvasPane.getGraphicsContext2D();
         canvasPane.setOnMousePressed(e -> {
-            rect.fillRect(e.getSceneX() - 197, e.getSceneY() - 77, 30, 20);
+            if (fillCheckBox.isSelected()) {
+                rect.fillRect(e.getSceneX() - 197, e.getSceneY() - 77, 30, 20);
+            } else {
+                rect.strokeRect(e.getSceneX() - 197, e.getSceneY() - 77, 30, 20);
+            }
         });
+
         colorPicker.setValue(Color.BLACK);
         colorPicker.setOnAction(e -> {
-            rect.setFill(colorPicker.getValue());
+            if (fillCheckBox.isSelected()) {
+                rect.setFill(colorPicker.getValue());
+            } else {
+                rect.setStroke((colorPicker.getValue()));
+            }
         });
     }
 }
