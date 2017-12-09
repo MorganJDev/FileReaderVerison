@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -17,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import static UI.Main.closeApplication;
 
@@ -60,6 +62,20 @@ public class MainMenuController implements Initializable
     @FXML private TableView<AuctionListing> browseArtworkTable;
     @FXML private TableColumn<AuctionListing, String> browseTitleColumn;
     @FXML private TableColumn<AuctionListing, String> browseSellerColumn;
+
+    //Filter options
+    ObservableList<String> artworkFilterList =
+            FXCollections.observableArrayList(
+                    "All",
+                    "Paintings",
+                    "Sculptures",
+                    "Favourites");
+
+    @FXML
+    private Label filterArtworkLabel;
+
+    @FXML
+    private ChoiceBox<String> artworkFilter;
 
     // Labels for browse tab
     @FXML private Label artDescriptionLabel2;
@@ -150,6 +166,55 @@ public class MainMenuController implements Initializable
         browseArtworkTable.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> showBrowseArtworkDetails(newValue));
 
+        //Listen for filter requests
+        artworkFilter.setItems(artworkFilterList);
+
+        artworkFilter.getSelectionModel().selectedItemProperty()
+                .addListener((((observable, oldValue, newValue) -> handleFilter(newValue))));
+
+    }
+
+    private void handleFilter(String filter) {
+        ObservableList<AuctionListing> newFilterList = FXCollections.observableArrayList();
+        ArrayList<AuctionListing> auctionListings = new ArrayList<>(
+                Main.auctioneer.getOtherAuctionListings(Main.admin.getCurrentUser()));
+
+        switch (filter) {
+            case "Paintings":
+                for (AuctionListing listing : auctionListings) {
+                    if(listing.getArtwork() instanceof Painting) {
+                        newFilterList.add(listing);
+                    }
+                }
+                browseArtworkTable.setItems(newFilterList);
+                break;
+
+            case "Sculptures":
+                for (AuctionListing listing : auctionListings) {
+                    if(listing.getArtwork() instanceof Sculpture) {
+                        newFilterList.add(listing);
+                    }
+                }
+                browseArtworkTable.setItems(newFilterList);
+                break;
+
+            case "Favourites":
+                for (AuctionListing listing : auctionListings) {
+                    for (User fav : Main.admin.getCurrentUser().getFavouriteUsers()) {
+                        if(listing.getSeller().equals(fav)) {
+                            newFilterList.add(listing);
+                        }
+                    }
+                }
+                browseArtworkTable.setItems(newFilterList);
+                break;
+
+            default:
+                for (AuctionListing listing : auctionListings) {
+                    newFilterList.add(listing);
+                }
+                browseArtworkTable.setItems(newFilterList);
+        }
     }
 
     /**
