@@ -161,7 +161,7 @@ public class User
      */
     public String getAddressLineOne()
     {
-        return addressLineTwo;
+        return addressLineOne;
     }
 
     /**
@@ -179,7 +179,7 @@ public class User
      */
     public String getAddressLineTwo()
     {
-        return addressLineOne;
+        return addressLineTwo;
     }
 
     /**
