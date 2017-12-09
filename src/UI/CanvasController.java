@@ -1,7 +1,6 @@
 
 package UI;
 
-import Classes.Custom;
 import Classes.User;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
@@ -9,32 +8,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
-//import javafx.scene.control.ColorPicker;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ColorPicker;
 import javafx.scene.image.WritableImage;
-import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import java.awt.Canvas;
 import javafx.scene.paint.Color;
-
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.RenderedImage;
-import java.awt.image.renderable.RenderableImage;
-import java.awt.image.renderable.RenderableImageOp;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
- * @author Georgi  Georgiev
+ * This class handles the interface for creating a custom drawn image.
+ * It allows the user to free draw and draw coloured lines/shapes.
+ * It also saves the drawing to their profile image
+ *
+ * @author Georgi Georgiev [student number]
+ * @version 1.0
  */
 
 public class CanvasController
 {
+    // Constants for canvas dimensions + shapes
     private final int CIRCLE_DIMENSIONS = 25;
     private final int RECTANGLE_X = 30;
     private final int RECTANGLE_Y = 20;
@@ -43,19 +36,27 @@ public class CanvasController
     private final int SHAPE_X = 197;
     private final int SHAPE_Y = 77;
 
-    @FXML
-    javafx.scene.canvas.Canvas canvasPane;
-    @FXML
-    javafx.scene.control.ColorPicker colorPicker;
-    @FXML
-    CheckBox fillCheckBox;
+    // GUI references
+    @FXML javafx.scene.canvas.Canvas canvasPane;
+    @FXML javafx.scene.control.ColorPicker colorPicker;
+    @FXML CheckBox fillCheckBox;
 
+    /**
+     * This method closes the window
+     */
     @FXML
     private void handleCancel()
     {
         Main.popup.close();
     }
 
+    /**
+     * This method converts the canvas pane and all the objects (lines, circles etc) into
+     * an Image object. It then saves the image as a png file inside the resources folder and
+     * writes said file path into the user object
+     *
+     * @throws Exception If file is not found
+     */
     @FXML
     private void handleSave() throws Exception
     {
@@ -89,6 +90,11 @@ public class CanvasController
         }
     }
 
+    /**
+     * This method closes the window and reloads the main menu with all its new data
+     *
+     * @throws Exception If file is not found
+     */
     private void reloadMain() throws Exception
     {
         // Sets a Main static variable that's referenced on MainMenu initialisation
@@ -105,6 +111,11 @@ public class CanvasController
         Main.popup.close();
     }
 
+    /**
+     * This method finds the current user from the static list of all users
+     *
+     * @return The user object
+     */
     private User findUser() {
         for (User i : Main.admin.getAllUsers()) {
             if (i.getUsername().equals(Main.admin.getCurrentUser().getUsername())) {
@@ -115,6 +126,10 @@ public class CanvasController
         return null;
     }
 
+    /**
+     * This method clears all the mouse click events for the canvas pane.
+     * This is so circles are not still drawn when line is clicked etc
+     */
     private void resetDraw()
     {
         canvasPane.setOnMousePressed(null);
@@ -122,29 +137,50 @@ public class CanvasController
         canvasPane.setOnMouseDragged(null);
     }
 
+    /**
+     * This calls the free draw method
+     * @see #drawBrush()
+     */
     @FXML
     private void handleBrushClick()
     {
         drawBrush();
     }
 
+    /**
+     * This calls the draw line method
+     * @see #drawLine()
+     */
     @FXML
     private void handleLineClick()
     {
         drawLine();
     }
 
+    /**
+     * This calls the draw circle method
+     * @see #drawCircle()
+     */
     @FXML
     private void handleCircleClick()
     {
         drawCircle();
     }
 
+    /**
+     * This calls the draw rectangle method
+     * @see #drawRectangle()
+     */
     @FXML
     private void handleRectangleClick(){
         drawRectangle();
     }
 
+    /**
+     * This method controls the canvas onClick and onDrag methods
+     * It sets the position and size of the a circle shape using
+     * values stored in constant variables
+     */
     private void drawCircle(){
 
         resetDraw();
@@ -172,6 +208,11 @@ public class CanvasController
         });
     }
 
+    /**
+     * This method controls the canvas onClick and onDrag methods
+     * It sets the position and size of the a line shape using
+     * values stored in constant variables
+     */
     private void drawLine(){
 
         resetDraw();
@@ -197,6 +238,11 @@ public class CanvasController
         });
     }
 
+    /**
+     * This method controls the canvas onClick and onDrag methods
+     * It allows a continuous line to be drawn free handed
+     * values stored in constant variables
+     */
     private void drawBrush() {
 
         resetDraw();
@@ -221,6 +267,12 @@ public class CanvasController
             gc.setStroke(colorPicker.getValue());
         });
     }
+
+    /**
+     * This method controls the canvas onClick and onDrag methods
+     * It sets the position and size of the a rectangle shape using
+     * values stored in constant variables
+     */
     private void drawRectangle(){
 
         resetDraw();
