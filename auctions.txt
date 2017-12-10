@@ -1,3 +1,1 @@
-painting%testpainting%this is a painting%Leonardo da vinci%1970%/ArtworkImages/cheese_PNG25334.png%30%40%Dan97%5%100%Closed%Morg98%200%Morg98;200;Won;2017-06-25T13:00:10;
-sculpture%Egg%AN EGG%Humpty%2015%/ArtworkImages/cheese_PNG25334.png%/ArtworkImages/Untitled.png%5%5%4%Egg%Dan97%10%30%Active%Morg98%50%Morg98;50;Accepted;2017-12-08T02:44:42.587188200;
-painting%Mona lisa%A woman%da vinci%1503%/ArtworkImages/Untitled.png%400%400%Morg98%5%300%Active%Morg98%300%
+sculpture%qwerty%uiop%asdfg%1234%78%56%90%wood%Dan97%3%92%Active%Dan97%92%

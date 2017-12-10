@@ -208,11 +208,13 @@
 										<ButtonBar layoutX="14.0" layoutY="379.0" prefHeight="40.0" prefWidth="409.0">
 											<buttons>
 												<Button fx:id="bidButton" mnemonicParsing="false" onAction="#handleBid" text="Bid..." />
-												<Button fx:id="viewPhotosButotn" mnemonicParsing="false" onAction="#handleViewPhotos" prefHeight="25.0" prefWidth="142.0" text="Photos" />
-												<Button fx:id="filterButton" mnemonicParsing="false" text="Filter..." />
+												<Button fx:id="viewPhotosButton" mnemonicParsing="false" onAction="#handleViewPhotos" prefHeight="25.0" prefWidth="142.0" text="Photos" />
+												<Button layoutX="301.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleViewSeller"
+														prefHeight="25.0" prefWidth="122.0" text="View seller" />
+												<!--<Button fx:id="filterButton" mnemonicParsing="false" text="Filter..." />-->
 											</buttons>
 										</ButtonBar>
-                              <Button layoutX="301.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleViewSeller" prefHeight="25.0" prefWidth="122.0" text="View seller" />
+                              <!--<Button layoutX="301.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleViewSeller" prefHeight="25.0" prefWidth="122.0" text="View seller" />-->
 									</children>
 								</AnchorPane>
 							</items>
