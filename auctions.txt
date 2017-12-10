@@ -1,3 +1,1 @@
-sculpture%qwerty%uiop%asdfg%1234%78%56%90%wood%Dan97%3%92%Active%Dan97%92%
-painting%Four Stages of Jens%A painting that describes Grandmaster Jens if four logic-based poses.%Hugh Willman%2017%fsoj.png%80%60%CSJens%4%50%Active%Dan97%50%Dan97;50;Accepted;2017-12-10T19:34:26.162999500;
-sculpture%Ready Steady Ainsley%A depiction of Rerady Steady Cook host Ainsley Harriott in cake form. Selling because I already have an Ainsley Harriott cake.%Heather Sweet%2010%30%15%10%Flour%CSJens%5%50%Active%JensTheSwede%62%JensTheSwede;62;Accepted;2017-12-10T19:35:11.085066300;
+sculpture%qwerty%uiop%asdfg%1234%/ArtworkImages/Untitled.png%78%56%90%wood%Dan97%3%92%Active%Dan97%92%
