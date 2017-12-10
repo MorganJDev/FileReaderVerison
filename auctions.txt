@@ -1,2 +1,1 @@
-sculpture%312%312%321%31%/ArtworkImages/fsoj.png%/ArtworkImages/rsa1.png%/ArtworkImages/rsa2.png%43%43%43%4frew%CSJens%543%43%Active%CSJens%43%
-painting%543%543%543%543%/ArtworkImages/rsa2.png%543%543%Dan97%2%543%Active%Dan97%543%
+painting%QWERTY%A painting with the letters Q, W, E, R, T and Y.%Mr Qwerty%1432%/ArtworkImages/fsoj.png%14%32%Dan97%3%10%Active%Dan97%10%
