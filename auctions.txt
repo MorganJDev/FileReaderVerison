@@ -1,20 +1,20 @@
-painting%QWERTY%A painting with the letters Q, W, E, R, T and Y.%Mr Qwerty%1432%/ArtworkImages/qwerty.png%14%32%Dan97%3%10%Active%Dan97%10%
+painting%QWERTY%A painting with the letters Q, W, E, R, T and Y.%Mr Qwerty%1432%/ArtworkImages/qwerty.png%14%32%Dan97%3%10%Active%CSJens%33%CSJens;33;Accepted;2017-12-11T04:39:26.546618400;
 sculpture%Ready Steady Ainsley%A depiction of Ready Steady Cook host Ainsley Harriott in cake form. Selling because I already have an Ainsley Harriott cake.%Heather Sweet%2010%/ArtworkImages/rsa1.png%/ArtworkImages/rsa2.png%15%30%10%Flour%CSJens%5%50%Active%CSJens%50%
 painting%Four Stages of Jens%A painting that describes Grandmaster Jens in four logic-based poses.%Hugh Willman%2017%/ArtworkImages/fsoj.png%20%12%CSJens%4%50%Active%CSJens%50%
-painting%Lemonade: a painting%A painting of lemonade.%John Tucker%1947%/ArtworkImages/lemp.png%12%20%GrahNort%12%49%Active%GrahNort%49%
+painting%Lemonade: a painting%A painting of lemonade.%John Tucker%1947%/ArtworkImages/lemp.png%12%20%GrahNort%12%49%Active%CSJens%230%CSJens;230;Accepted;2017-12-11T05:24:02.641494300;
 sculpture%Lemonade: a sculpture%A sculpture of lemonade.%John Tucker%1957%/ArtworkImages/lems.png%12%20%40%Lemonade%GrahNort%12%49%Active%GrahNort%49%
 painting%Diet Lemonade: a painting%A painting of diet lemonade.%Chris Whyley%1847%/ArtworkImages/dlemp.png%12%20%PGriff%12%49%Active%PGriff%49%
 sculpture%Diet Lemonade: a sculpture%A sculpture of diet lemonade.%Chris Whyley%1547%/ArtworkImages/dlems.png%12%20%40%Lemonade%PGriff%12%49%Active%PGriff%49%
-sculpture%The Corbin%A bin based on Jeremy Corbyn.%Ed Miliband%1472%/ArtworkImages/corbin.png%42%33%22%Metal%SofHel%12%24%Active%SofHel%24%
+sculpture%The Corbin%A bin based on Jeremy Corbyn.%Ed Miliband%1472%/ArtworkImages/corbin.png%42%33%22%Metal%SofHel%12%24%Active%CSJens%42%CSJens;42;Accepted;2017-12-11T04:39:02.485812500;
 sculpture%Ed Miller Band%A sculpture of Ed Miliband in the Ed Miller Band.%Ed Balls%1986%/ArtworkImages/emb.png%12%45%32%Jelly%KriHen%43%12%Active%KriHen%12%
-sculpture%David Camera%A bust of David Cameron taking a photo on his phone.%Linda Blair%2012%/ArtworkImages/dc.png%12%89%32%Trifle%KriHen%22%89%Active%KriHen%89%
+sculpture%David Camera%A bust of David Cameron taking a photo on his phone.%Linda Blair%2012%/ArtworkImages/dc.png%12%89%32%Trifle%KriHen%22%89%Active%CSJens%99%CSJens;99;Accepted;2017-12-11T04:39:16.004129500;
 painting%Cloudy Lemonade: a painting%A painting of cloudy lemonade.%Gary Tam%1947%/ArtworkImages/clemp.png%12%20%DagMalm%12%49%Active%DagMalm%49%
 sculpture%Cloudy Lemonade: a sculpture%A sculpture of cloudy lemonade.%Gary Tam%1957%/ArtworkImages/clems.png%12%20%40%Lemonade%MadsMikk%12%49%Active%MadsMikk%49%
 painting%Coughy%A painting of a person coughing after having drunk some coffee.%Danial Archambault%1923%/ArtworkImages/coughy.png%70%40%Toilet%10%56%Active%Toilet%56%
 painting%Pear Tree%A painting of a pear tree.%Faron Moller%1933%/ArtworkImages/peartree.png%40%70%Toilet%10%56%Active%Toilet%56%
 painting%Bell%A painting of a bell.%Oliver Kullmann%1923%/ArtworkImages/bell.png%40%70%Toilet%10%56%Active%Toilet%56%
-sculpture%Foam Phone%A phone made of foam.%Neal Harman%1800%/ArtworkImages/phone.png%12%24%12%Foam%AlfBav%22%10%Active%AlfBav%10%
-sculpture%Phone Foam%Some foam for a phone.%Neal Harman%1800%/ArtworkImages/foam.png%12%24%12%Foam%AlfBav%22%10%Active%AlfBav%10%
+sculpture%Foam Phone%A phone made of foam.%Neal Harman%1800%/ArtworkImages/phone.png%12%24%12%Foam%AlfBav%22%10%Active%CSJens%40%CSJens;40;Accepted;2017-12-11T04:42:38.426475600;
+sculpture%Phone Foam%Some foam for a phone.%Neal Harman%1800%/ArtworkImages/foam.png%12%24%12%Foam%AlfBav%22%10%Active%CSJens%39%CSJens;39;Accepted;2017-12-11T04:39:37.852170900;
 sculpture%Key Board%A board with some hanging keys.%Stephen Lindsay%1934%/ArtworkImages/kb.png%30%20%3%Wood%AdaLove%12%44%Active%AdaLove%44%
-painting%Sugar Free Lemonade: a painting%A painting of sugar free lemonade.%Mabrouka Abuhmida%1967%/ArtworkImages/sflemp.png%12%20%MegWhit%12%49%Active%MegWhit%49%
-sculpture%Sugar Free Lemonade: a sculpture%A sculpture of sugar free lemonade.%Alena Denisova%1977%/ArtworkImages/sfems1.png%/ArtworkImages/sfems2.png%12%20%40%Lemonade%AlPar%12%49%Active%AlPar%49%
+painting%Sugar Free Lemonade: a painting%A painting of sugar free lemonade.%Mabrouka Abuhmida%1967%/ArtworkImages/sflemp.png%12%20%MegWhit%12%49%Active%SofHel%567%SofHel;567;Accepted;2017-12-11T04:31:01.173974;
+sculpture%Sugar Free Lemonade: a sculpture%A sculpture of sugar free lemonade.%Alena Denisova%1977%/ArtworkImages/sflems1.png%/ArtworkImages/sflems2.png%12%20%40%Lemonade%AlPar%12%49%Closed%CSJens%1000%Jake97;432;Accepted;2017-12-11T04:26:17.257874500;PGriff;456;Accepted;2017-12-11T04:27:37.666501;JaspHub;457;Accepted;2017-12-11T04:27:59.514218200;KriHen;458;Accepted;2017-12-11T04:28:27.831015300;Dan97;459;Accepted;2017-12-11T04:28:44.683296100;MadsMikk;460;Accepted;2017-12-11T04:29:28.459755900;PhilStan;461;Accepted;2017-12-11T04:29:45.537561800;MegWhit;465;Accepted;2017-12-11T04:30:11.019654500;KimBod;567;Accepted;2017-12-11T04:30:35.758769100;GrahNort;568;Accepted;2017-12-11T04:31:32.225020900;Toilet;570;Accepted;2017-12-11T04:32:17.765156;CSJens;1000;Winner;2017-12-11T04:46:55.484851300;
